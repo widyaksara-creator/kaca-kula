@@ -1,0 +1,3011 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Pétungan Jawa" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#0f3d28" />
+  <meta name="description" content="Aplikasi Pétungan Jawa & Primbon Agung 100% Offline: Weton, Neptu, Wuku, Paringkelan, Pancasuda, Aksara Jawa KAJ I 2021, Pawiwahan, Haul, dan Katuranggan." />
+  <title>Pétungan Jawa &amp; Primbon Agung — 100% Offline</title>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='%230f3d28'/%3E%3Crect x='10' y='10' width='160' height='160' rx='28' fill='none' stroke='%23d4af37' stroke-width='5'/%3E%3Ccircle cx='90' cy='90' r='52' fill='none' stroke='%23f3d36b' stroke-width='4'/%3E%3Cpolygon points='90,26 105,75 154,90 105,105 90,154 75,105 26,90 75,75' fill='%23d4af37'/%3E%3Ccircle cx='90' cy='90' r='14' fill='%237b241c' stroke='%23fdfbf5' stroke-width='3'/%3E%3C/svg%3E" />
+  <style>
+    /* ==========================================================================
+       PALET KERATON NGAYOGYAKARTA HADININGRAT (100% OFFLINE PURE CSS)
+       - Hijau Keraton (Gadung Mlathi / Regol Danapratapa)
+       - Emas Prada
+       - Putih Gading (Krem Bangsal)
+       - Merah Soga
+       ========================================================================== */
+    :root {
+      --keraton-green: #144d32;
+      --keraton-green-deep: #0b2e1e;
+      --keraton-green-mid: #1d6342;
+      --keraton-green-soft: #e8f1ec;
+      --prada-gold: #c9a227;
+      --prada-gold-bright: #f0cf65;
+      --prada-gold-soft: #fbf5df;
+      --ivory-bg: #f6f1e3;
+      --ivory-card: #fcf9f0;
+      --ivory-panel: #fffdf7;
+      --soga-red: #7c2418;
+      --soga-red-deep: #58170e;
+      --soga-red-soft: #f9ebe8;
+      --ink-main: #241914;
+      --ink-muted: #5d4d42;
+      --border-gold: rgba(201, 162, 39, 0.45);
+      --shadow-card: 0 8px 24px rgba(11, 46, 30, 0.08);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--ivory-bg);
+      background-image:
+        radial-gradient(circle at 20px 20px, rgba(201, 162, 39, 0.07) 2px, transparent 2px),
+        radial-gradient(circle at 60px 60px, rgba(20, 77, 50, 0.05) 2px, transparent 2px);
+      background-size: 80px 80px;
+      color: var(--ink-main);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    .sans {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* ==========================================================================
+       HEADER KERATON
+       ========================================================================== */
+    .keraton-header {
+      background: linear-gradient(135deg, var(--keraton-green-deep) 0%, var(--keraton-green) 55%, var(--keraton-green-mid) 100%);
+      color: var(--ivory-panel);
+      border-bottom: 4px solid var(--prada-gold);
+      box-shadow: 0 6px 22px rgba(11, 46, 30, 0.25);
+      position: relative;
+    }
+
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .emblem-box {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(11, 46, 30, 0.65);
+      border: 2px solid var(--prada-gold-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 12px rgba(240, 207, 101, 0.25);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: var(--prada-gold-bright);
+    }
+
+    .brand-subtitle {
+      margin: 2px 0 0;
+      font-size: 0.82rem;
+      color: #e4ede8;
+      opacity: 0.95;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .offline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(11, 46, 30, 0.75);
+      border: 1px solid var(--prada-gold);
+      color: var(--prada-gold-bright);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .dot-live {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 6px #4ade80;
+    }
+
+    .btn-download-app {
+      background: linear-gradient(135deg, var(--prada-gold-bright), var(--prada-gold));
+      color: var(--keraton-green-deep);
+      border: 1px solid #fff3c4;
+      border-radius: 999px;
+      padding: 8px 14px;
+      min-height: 38px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .btn-download-app:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .btn-download-app:active {
+      transform: scale(0.98);
+    }
+
+    /* ==========================================================================
+       NAVIGASI TAB DESKTOP & BOTTOM BAR MOBILE
+       ========================================================================== */
+    .nav-bar-wrap {
+      background: var(--keraton-green-deep);
+      border-bottom: 2px solid var(--border-gold);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+
+    .nav-bar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .tab-btn {
+      flex: 1;
+      min-width: 155px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(201, 162, 39, 0.28);
+      background: rgba(255, 255, 255, 0.05);
+      color: #dce8e1;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      background: rgba(201, 162, 39, 0.16);
+      color: #fff;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--prada-gold-bright), var(--prada-gold));
+      color: var(--keraton-green-deep);
+      border-color: #fff2c2;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .mobile-bottom-nav {
+      display: none;
+    }
+
+    /* ==========================================================================
+       MAIN CONTAINER & CARDS
+       ========================================================================== */
+    .main-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 22px 16px 48px;
+    }
+
+    .tab-panel {
+      display: none;
+      animation: fadeSlide 0.22s ease;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--ivory-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .card-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-bottom: 2px solid rgba(201, 162, 39, 0.3);
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--keraton-green);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .soga-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--soga-red-soft);
+      color: var(--soga-red);
+      border: 1px solid rgba(124, 36, 24, 0.25);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .gold-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--prada-gold-soft);
+      color: #6c4f05;
+      border: 1px solid var(--prada-gold);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .green-tag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--keraton-green-soft);
+      color: var(--keraton-green);
+      border: 1px solid rgba(20, 77, 50, 0.3);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       FORMS & BUTTONS
+       ========================================================================== */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--soga-red);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .input-ctrl {
+      width: 100%;
+      padding: 10px 12px;
+      min-height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid rgba(20, 77, 50, 0.3);
+      background: var(--ivory-panel);
+      color: var(--ink-main);
+      font-size: 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .input-ctrl:focus {
+      outline: none;
+      border-color: var(--keraton-green);
+      box-shadow: 0 0 0 3px rgba(20, 77, 50, 0.14);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--keraton-green), var(--keraton-green-deep));
+      color: var(--prada-gold-bright);
+      border: 1.5px solid var(--prada-gold);
+      border-radius: 10px;
+      padding: 11px 18px;
+      min-height: 44px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(11, 46, 30, 0.18);
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--ivory-panel);
+      color: var(--keraton-green);
+      border: 1.5px solid var(--keraton-green);
+      border-radius: 10px;
+      padding: 9px 14px;
+      min-height: 42px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--keraton-green-soft);
+    }
+
+    .btn-soga {
+      background: var(--soga-red);
+      color: #fff8f5;
+      border: 1px solid var(--prada-gold);
+      border-radius: 10px;
+      padding: 9px 14px;
+      min-height: 42px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .action-bar-section {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-gold);
+    }
+
+    /* ==========================================================================
+       HERO BANNER & STAT BOXES
+       ========================================================================== */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--keraton-green-deep) 0%, var(--keraton-green) 70%, #1c5e3f 100%);
+      color: var(--ivory-panel);
+      border: 2px solid var(--prada-gold);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-weton-title {
+      margin: 4px 0;
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--prada-gold-bright);
+      letter-spacing: 0.5px;
+    }
+
+    .stat-box {
+      background: var(--ivory-panel);
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--soga-red);
+      font-weight: 700;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--keraton-green);
+      margin: 4px 0 2px;
+    }
+
+    .stat-sub {
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    .notice-box {
+      background: var(--prada-gold-soft);
+      border-left: 4px solid var(--prada-gold);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: #4b3806;
+      margin-top: 12px;
+    }
+
+    .soga-box {
+      background: var(--soga-red-soft);
+      border-left: 4px solid var(--soga-red);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--soga-red-deep);
+    }
+
+    /* ==========================================================================
+       AKSARA JAWA DISPLAY
+       ========================================================================== */
+    .aksara-showcase {
+      background: linear-gradient(180deg, #fffdf6 0%, var(--prada-gold-soft) 100%);
+      border: 2px solid var(--prada-gold);
+      border-radius: var(--radius-md);
+      padding: 20px 16px;
+      text-align: center;
+      margin: 14px 0;
+    }
+
+    .aksara-text {
+      font-size: 2.35rem;
+      line-height: 1.75;
+      color: var(--soga-red);
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .syllable-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .syllable-chip {
+      background: var(--ivory-panel);
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      padding: 6px 12px;
+      min-width: 72px;
+      text-align: center;
+    }
+
+    .carakan-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .carakan-cell {
+      background: var(--ivory-panel);
+      border: 1px solid var(--border-gold);
+      border-radius: 10px;
+      padding: 8px 4px;
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       TABLES & LISTS
+       ========================================================================== */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border-gold);
+    }
+
+    table.primbon-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      background: var(--ivory-panel);
+    }
+
+    table.primbon-table th {
+      background: var(--keraton-green);
+      color: var(--prada-gold-bright);
+      text-align: left;
+      padding: 11px 12px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    table.primbon-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+      vertical-align: top;
+    }
+
+    table.primbon-table tr:nth-child(even) td {
+      background: rgba(246, 241, 227, 0.55);
+    }
+
+    /* ==========================================================================
+       KATURANGGAN INTERACTIVE
+       ========================================================================== */
+    .sub-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .sub-tab-btn {
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1.5px solid var(--keraton-green);
+      background: var(--ivory-panel);
+      color: var(--keraton-green);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .sub-tab-btn.active {
+      background: var(--keraton-green);
+      color: var(--prada-gold-bright);
+      border-color: var(--prada-gold);
+    }
+
+    .katuranggan-layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .svg-body-box {
+      background: var(--ivory-panel);
+      border: 1.5px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+    }
+
+    .mole-dot {
+      cursor: pointer;
+      transition: r 0.15s ease, fill 0.15s ease;
+    }
+
+    .mole-dot:hover {
+      fill: var(--prada-gold-bright);
+    }
+
+    .katuranggan-item {
+      background: var(--ivory-panel);
+      border: 1px solid var(--border-gold);
+      border-left: 4px solid var(--keraton-green);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .katuranggan-item:hover,
+    .katuranggan-item.selected {
+      border-left-color: var(--soga-red);
+      background: var(--prada-gold-soft);
+      box-shadow: 0 4px 12px rgba(124, 36, 24, 0.1);
+    }
+
+    /* ==========================================================================
+       TOAST & FOOTER
+       ========================================================================== */
+    .toast-box {
+      position: fixed;
+      bottom: 84px;
+      right: 18px;
+      background: var(--keraton-green-deep);
+      color: var(--prada-gold-bright);
+      border: 1.5px solid var(--prada-gold);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: all 0.25s ease;
+      max-width: 340px;
+    }
+
+    .toast-box.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 20px 16px 36px;
+      color: var(--ink-muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border-gold);
+      margin-top: 24px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE MOBILE (<= 768px) — TAMPILAN PONSEL NYAMAN & TANPA SCROLL SAMPING
+       ========================================================================== */
+    @media (max-width: 768px) {
+      .header-inner {
+        padding: 12px 14px;
+        gap: 10px;
+      }
+
+      .emblem-box {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+      }
+
+      .emblem-box svg {
+        width: 26px;
+        height: 26px;
+      }
+
+      .brand-title {
+        font-size: 1.05rem;
+        line-height: 1.25;
+      }
+
+      .brand-subtitle {
+        font-size: 0.72rem;
+        line-height: 1.35;
+      }
+
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+        padding-top: 8px;
+        border-top: 1px solid rgba(201, 162, 39, 0.25);
+      }
+
+      .offline-badge {
+        font-size: 10.5px;
+        padding: 5px 10px;
+      }
+
+      .btn-download-app {
+        padding: 6px 11px;
+        min-height: 34px;
+        font-size: 11px;
+      }
+
+      .nav-bar-wrap {
+        display: none;
+      }
+
+      .mobile-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(11, 46, 30, 0.97);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-top: 2px solid var(--prada-gold);
+        padding: 6px 4px calc(8px + env(safe-area-inset-bottom));
+        z-index: 60;
+        justify-content: space-around;
+        gap: 2px;
+        box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.32);
+      }
+
+      .mob-tab {
+        flex: 1;
+        background: transparent;
+        border: 1px solid transparent;
+        color: #cfe0d7;
+        font-size: 10.5px;
+        font-weight: 600;
+        padding: 6px 2px;
+        min-height: 48px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: all 0.18s ease;
+      }
+
+      .mob-tab svg {
+        width: 18px;
+        height: 18px;
+        opacity: 0.85;
+      }
+
+      .mob-tab.active {
+        color: var(--prada-gold-bright);
+        background: rgba(201, 162, 39, 0.2);
+        border-color: rgba(240, 207, 101, 0.4);
+        font-weight: 800;
+      }
+
+      .mob-tab.active svg {
+        opacity: 1;
+        stroke: var(--prada-gold-bright);
+      }
+
+      .main-wrap {
+        padding: 12px 12px 96px;
+      }
+
+      .card {
+        padding: 15px 14px;
+        border-radius: 14px;
+        margin-bottom: 14px;
+      }
+
+      .card-header-row {
+        padding-bottom: 10px;
+        margin-bottom: 12px;
+      }
+
+      .card-title {
+        font-size: 1.02rem;
+        line-height: 1.35;
+      }
+
+      .grid-2, .grid-3, .katuranggan-layout {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .input-ctrl {
+        font-size: 16px; /* Mencegah auto-zoom Safari iOS */
+        padding: 10px 12px;
+      }
+
+      .hero-banner {
+        padding: 16px 14px;
+        border-radius: 14px;
+      }
+
+      .hero-weton-title {
+        font-size: 1.48rem;
+      }
+
+      .stat-box {
+        padding: 11px 10px;
+      }
+
+      .stat-value {
+        font-size: 1.1rem;
+      }
+
+      .aksara-showcase {
+        padding: 16px 12px;
+      }
+
+      .aksara-text {
+        font-size: 1.9rem;
+        line-height: 1.85;
+      }
+
+      .carakan-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .sub-tabs {
+        flex-direction: column;
+      }
+
+      .sub-tab-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .action-bar-section {
+        flex-direction: column;
+      }
+
+      .action-bar-section button {
+        width: 100%;
+      }
+
+      /* Ubah Tabel Panjang (Pawiwahan & Haul) Menjadi Tampilan Kartu Rapi di Ponsel */
+      .table-wrap {
+        border: none;
+        overflow-x: visible;
+      }
+
+      table.primbon-table,
+      table.primbon-table thead,
+      table.primbon-table tbody,
+      table.primbon-table tr,
+      table.primbon-table td {
+        display: block;
+        width: 100%;
+      }
+
+      table.primbon-table thead {
+        display: none;
+      }
+
+      table.primbon-table tr {
+        background: var(--ivory-panel);
+        border: 1.5px solid var(--border-gold);
+        border-left: 4px solid var(--keraton-green);
+        border-radius: 12px;
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        box-shadow: 0 3px 10px rgba(11, 46, 30, 0.05);
+      }
+
+      table.primbon-table tr:nth-child(even) td {
+        background: transparent;
+      }
+
+      table.primbon-table td {
+        padding: 5px 0;
+        border-bottom: 1px dashed rgba(201, 162, 39, 0.25);
+      }
+
+      table.primbon-table td:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      table.primbon-table td[data-label]::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--soga-red);
+        margin-bottom: 2px;
+      }
+
+      .toast-box {
+        left: 12px;
+        right: 12px;
+        bottom: 78px;
+        max-width: none;
+        text-align: center;
+      }
+
+      .footer-note {
+        padding-bottom: 96px;
+        font-size: 11px;
+      }
+    }
+
+    /* ==========================================================================
+       PRINT / SAVE PDF STYLES
+       ========================================================================== */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .keraton-header,
+      .nav-bar-wrap,
+      .mobile-bottom-nav,
+      .footer-note,
+      .toast-box,
+      .action-bar-section,
+      .btn-download-app,
+      button,
+      details,
+      .no-print {
+        display: none !important;
+      }
+      .main-wrap {
+        max-width: 100%;
+        padding: 0;
+      }
+      .card, .hero-banner, .stat-box {
+        box-shadow: none !important;
+        break-inside: avoid;
+      }
+      .hero-banner {
+        background: #144d32 !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       HEADER KERATON NGAYOGYAKARTA
+       ======================================================================== -->
+  <header class="keraton-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="emblem-box" aria-hidden="true">
+          <svg width="34" height="34" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="28" stroke="#f0cf65" stroke-width="2.5" />
+            <polygon points="32,6 39,25 58,32 39,39 32,58 25,39 6,32 25,25" fill="#c9a227" />
+            <circle cx="32" cy="32" r="7" fill="#7c2418" stroke="#fcf9f0" stroke-width="2" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">Pétungan Jawa &amp; Primbon Agung</h1>
+          <p class="brand-subtitle sans">Kalender Sultan Agungan • Komunitas Aksara Jawa Segajabung • Pawiwahan • Haul &amp; Katuranggan</p>
+        </div>
+      </div>
+
+      <div class="header-actions sans">
+        <div class="offline-badge">
+          <span class="dot-live"></span>
+          <span>Mas Lurah Dwija Prasetya Prasaja</span>
+        </div>
+        <button type="button" class="btn-download-app" onclick="downloadSelfApp()" title="Simpan seluruh aplikasi ini menjadi file HTML offline di perangkat Anda">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Unduh Aplikasi (.html)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       NAVIGASI DESKTOP / LAPTOP
+       ======================================================================== -->
+  <nav class="nav-bar-wrap sans" aria-label="Menu Utama">
+    <div class="nav-bar">
+      <button type="button" class="tab-btn active" data-tab="weton" onclick="switchTab('weton')">
+        <span>Weton &amp; Pancasuda</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="nama" onclick="switchTab('nama')">
+        <span>Pétung Nama</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="nikah" onclick="switchTab('nikah')">
+        <span>Hari Baik Pernikahan</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="haul" onclick="switchTab('haul')">
+        <span>Peringatan Kematian</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="katuranggan" onclick="switchTab('katuranggan')">
+        <span>Katuranggan</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       KONTEN UTAMA
+       ======================================================================== -->
+  <main class="main-wrap">
+
+    <!-- ======================================================================
+         TAB 1: WETON, NEPTU, WUKU, PARINGKELAN, WANCI, PANCASUDA & WATAK
+         ====================================================================== -->
+    <section id="panel-weton" class="tab-panel active">
+      <div class="card no-print">
+        <div class="card-header-row">
+          <h2 class="card-title">Hitung Weton Kelahiran, Wuku, Paringkelan &amp; Pancasuda</h2>
+          <span class="gold-tag sans">ꦥꦺꦠꦸꦁꦗꦮꦩꦶꦫꦸꦁꦒꦤ꧀</span>
+        </div>
+
+        <div class="grid-4 sans">
+          <div class="field-group">
+            <label class="field-label" for="weton-person-name">Nama Lengkap (Opsional)</label>
+            <input type="text" id="weton-person-name" class="input-ctrl" value="Wong Sayuk Prasaja" oninput="syncNameFromWeton()" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="weton-date">Tanggal Kelahiran</label>
+            <input type="date" id="weton-date" class="input-ctrl" value="1999-09-19" onchange="calcWeton()" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="weton-time">Jam Kelahiran (WIB)</label>
+            <input type="time" id="weton-time" class="input-ctrl" value="08:00" onchange="calcWeton()" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="weton-rule">Paugeran Pergantian Hari</label>
+            <select id="weton-rule" class="input-ctrl" onchange="calcWeton()">
+              <option value="wiwit" selected>12:01 WIB (Tengah Hari Jawa)</option>
+              <option value="masehi">00:01 WIB (Tengah Malam Masehi)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- HASIL HERO WETON -->
+      <div id="weton-result-area">
+        <div class="hero-banner">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+            <div>
+              <div class="sans" style="font-size:12px; color:#f0cf65; font-weight:700; letter-spacing:0.6px;" id="res-weton-person-badge">HASIL PÉTUNGAN WETON KELAHIRAN</div>
+              <div class="hero-weton-title" id="res-weton-main">Minggu Pahing</div>
+              <div class="sans" style="font-size:14px; color:#e6f1eb;" id="res-weton-masehi">Minggu, 19 September 1999</div>
+              <div class="sans" style="font-size:13px; color:#f0cf65; margin-top:4px;" id="res-weton-jawa-date">8 Jumadil Akhir 1932 Ja • Tahun Ehe (Windu Sancaya)</div>
+            </div>
+            <div style="background:rgba(11,46,30,0.75); border:1.5px solid #f0cf65; border-radius:14px; padding:12px 18px; text-align:center;">
+              <div class="sans" style="font-size:11px; color:#f0cf65; font-weight:700;">JUMLAH NEPTU</div>
+              <div style="font-size:2rem; font-weight:700; color:#fff;" id="res-neptu-total">14</div>
+              <div class="sans" style="font-size:11.5px; color:#d7e8df;" id="res-neptu-breakdown">Minggu (5) + Pahing (9)</div>
+            </div>
+          </div>
+          <div id="res-wiwit-notice" class="notice-box sans" style="display:none;"></div>
+        </div>
+
+        <!-- 4 KARTU KOMPONEN KALENDER JAWA -->
+        <div class="grid-4" style="margin-bottom:18px;">
+          <div class="stat-box">
+            <div class="stat-label sans">Saptawara (Dina)</div>
+            <div class="stat-value" id="res-saptawara">Minggu</div>
+            <div class="stat-sub sans" id="res-saptawara-sub">Radite • Neptu 5</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label sans">Pancawara (Pasaran)</div>
+            <div class="stat-value" id="res-pancawara">Pahing</div>
+            <div class="stat-sub sans" id="res-pancawara-sub">Pahit • Neptu 9</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label sans">Wuku (30 Siklus)</div>
+            <div class="stat-value" id="res-wuku">Wugu</div>
+            <div class="stat-sub sans" id="res-wuku-sub">Wuku ke-26</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label sans">Paringkelan &amp; Wanci</div>
+            <div class="stat-value" id="res-paringkelan">Aryang</div>
+            <div class="stat-sub sans" id="res-wanci-sub">Pecat Sawed (08:00 WIB)</div>
+          </div>
+        </div>
+
+        <!-- PANCASUDA KELAHIRAN -->
+        <div class="card">
+          <div class="card-header-row">
+            <h3 class="card-title">Pancasuda Kelahiran &amp; Wanci</h3>
+            <span class="soga-tag sans">Pétung Sisa 7 &amp; Sisa 5</span>
+          </div>
+          <div class="grid-2" id="res-pancasuda-container"></div>
+          <div class="notice-box sans" id="res-wanci-detail" style="margin-top:14px;"></div>
+        </div>
+
+        <!-- RINCIAN WATAK WETON (35 WETON) -->
+        <div class="card">
+          <div class="card-header-row">
+            <h3 class="card-title">Rincian Watak Lengkap Berdasarkan Weton</h3>
+            <div class="no-print sans" style="display:flex; gap:6px; align-items:center;">
+              <label for="browse-weton-select" style="font-size:12px; font-weight:700; color:var(--soga-red);">Telusuri 35 Weton:</label>
+              <select id="browse-weton-select" class="input-ctrl" style="min-height:36px; padding:4px 8px; font-size:12.5px;" onchange="previewCatalogWeton()"></select>
+            </div>
+          </div>
+          <div id="res-watak-weton-detail"></div>
+        </div>
+
+        <!-- RINCIAN WATAK WUKU (30 WUKU) -->
+        <div class="card">
+          <div class="card-header-row">
+            <h3 class="card-title">Rincian Watak Lengkap Berdasarkan Wuku</h3>
+            <div class="no-print sans" style="display:flex; gap:6px; align-items:center;">
+              <label for="browse-wuku-select" style="font-size:12px; font-weight:700; color:var(--soga-red);">Telusuri 30 Wuku:</label>
+              <select id="browse-wuku-select" class="input-ctrl" style="min-height:36px; padding:4px 8px; font-size:12.5px;" onchange="previewCatalogWuku()"></select>
+            </div>
+          </div>
+          <div id="res-watak-wuku-detail"></div>
+
+          <div class="action-bar-section sans no-print">
+            <button type="button" class="btn-primary" onclick="printSection('panel-weton')">
+              <span>Cetak / Simpan PDF Weton &amp; Pancasuda</span>
+            </button>
+            <button type="button" class="btn-secondary" onclick="saveSectionFile('panel-weton', 'Laporan_Weton_Pancasuda')">
+              <span>Simpan Lembar (.html)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 2: PÉTUNG NAMA (AKSARA JAWA KAJ I 2021 - SCRIPTIO CONTINUA)
+         ====================================================================== -->
+    <section id="panel-nama" class="tab-panel">
+      <div class="card no-print">
+        <div class="card-header-row">
+          <h2 class="card-title">Pétung Nama &amp; Transliterasi Aksara Jawa</h2>
+          <span class="green-tag sans">KAJ I 2021 • Scriptio Continua</span>
+        </div>
+
+        <div class="grid-3 sans">
+          <div class="field-group">
+            <label class="field-label" for="nama-input">Tulis Nama Lengkap</label>
+            <input type="text" id="nama-input" class="input-ctrl" value="Mas Lurah Dwija Prasetya Prasaja" oninput="calcNamaAksara()" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="nama-paugeran">Paugeran Neptu Aksara</label>
+            <select id="nama-paugeran" class="input-ctrl" onchange="calcNamaAksara()">
+              <option value="carakan20" selected>Urutan Carakan Baku (Ha=1 s.d. Nga=20)</option>
+              <option value="ringkes9">Neptu Ringkes / Satuan (1–9)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="nama-style">Gaya Tata Tulis Aksara</label>
+            <select id="nama-style" class="input-ctrl" onchange="calcNamaAksara()">
+              <option value="continua" selected>Scriptio Continua (Gandheng Tanpa Spasi)</option>
+              <option value="continua_pada">Scriptio Continua + Adeg-adeg (꧋...꧉)</option>
+              <option value="spaced">Pemisahan Spasi Modern</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2 sans" style="margin-top:12px;">
+          <div class="field-group">
+            <label class="field-label" for="sample-nama-select">Pilih Sampel Kamus Nama Baku</label>
+            <select id="sample-nama-select" class="input-ctrl" onchange="applySampleNama()">
+              <option value="">-- Pilih contoh nama dari kamus baku --</option>
+            </select>
+          </div>
+          <div class="field-group" style="justify-content:flex-end;">
+            <div id="nama-kamus-note" class="notice-box" style="margin-top:0; font-size:12px;">
+              Ketik nama di atas atau pilih dari kamus baku untuk melihat ejaan Aksara Jawa KAJ I 2021 beserta neptunya.
+            </div>
+          </div>
+        </div>
+
+        <!-- TAMBAH KAMUS LOKAL -->
+        <details class="sans" style="margin-top:14px; background:var(--ivory-panel); border:1px solid var(--border-gold); border-radius:10px; padding:10px 14px;">
+          <summary style="cursor:pointer; font-weight:700; color:var(--keraton-green); font-size:13px;">
+            + Tambah Koreksi Nama Baru ke Kamus Lokal
+          </summary>
+          <div class="grid-3" style="margin-top:10px;">
+            <input type="text" id="custom-nama-latin" class="input-ctrl" placeholder="Nama Latin (mis. Soekarno)" />
+            <input type="text" id="custom-nama-phonetic" class="input-ctrl" placeholder="Pelafalan Jawa (mis. Sukarno)" />
+            <input type="text" id="custom-nama-unicode" class="input-ctrl" placeholder="Opsional Unicode (mis. ꦱꦸꦏꦂꦤ)" />
+          </div>
+          <div style="margin-top:8px; display:flex; gap:8px;">
+            <button type="button" class="btn-primary" onclick="saveCustomNama()">Simpan ke Kamus</button>
+          </div>
+        </details>
+      </div>
+
+      <!-- HASIL AKSARA & NEPTU NAMA -->
+      <div class="card">
+        <div class="card-header-row">
+          <h3 class="card-title">Wujud Aksara Jawa &amp; Rincian Wanda</h3>
+          <span class="gold-tag sans" id="res-nama-total-badge">Total Neptu Nama: 0</span>
+        </div>
+
+        <div class="aksara-showcase">
+          <div class="sans" style="font-size:11.5px; color:var(--ink-muted); font-weight:700; margin-bottom:4px;">TATA TULIS AKSARA CARAKAN (KAJ I 2021)</div>
+          <div class="aksara-text" id="res-aksara-unicode">ꦩꦱ꧀ꦭꦸꦫꦃꦢ꧀ꦮꦶꦗꦥꦿꦱꦼꦠꦾꦥꦿꦱꦗ</div>
+          <div class="syllable-chips sans" id="res-aksara-syllables"></div>
+        </div>
+
+        <div class="grid-3" id="res-nama-petung-cards" style="margin-top:14px;"></div>
+
+        <!-- TABEL REFERENSI 20 AKSARA CARAKAN -->
+        <details class="sans" style="margin-top:16px;">
+          <summary style="cursor:pointer; font-weight:700; color:var(--soga-red); font-size:13px;">
+            Lihat Tabel Nilai Neptu 20 Aksara Carakan (Hanacaraka)
+          </summary>
+          <div class="carakan-grid" id="carakan-ref-grid"></div>
+        </details>
+
+        <div class="action-bar-section sans no-print">
+          <button type="button" class="btn-primary" onclick="printSection('panel-nama')">
+            <span>Cetak / Simpan PDF Pétung Nama</span>
+          </button>
+          <button type="button" class="btn-secondary" onclick="saveSectionFile('panel-nama', 'Laporan_Petung_Nama_Aksara')">
+            <span>Simpan Lembar (.html)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 3: HARI BAIK PAWIWAHAN & KECOCOKAN JODOH
+         ====================================================================== -->
+    <section id="panel-nikah" class="tab-panel">
+      <div class="card no-print">
+        <div class="card-header-row">
+          <h2 class="card-title">Pétung Kecocokan Jodoh &amp; Hari Baik Pawiwahan</h2>
+          <span class="gold-tag sans">Weton + Nama Kedua Mempelai</span>
+        </div>
+
+        <div class="grid-2 sans" style="margin-bottom:14px;">
+          <!-- MEMPELAI PRIA -->
+          <div style="background:var(--ivory-panel); border:1px solid var(--border-gold); border-radius:12px; padding:14px;">
+            <div style="font-weight:800; color:var(--keraton-green); margin-bottom:10px; font-size:13.5px;">Calon Mempelai Pria</div>
+            <div class="field-group" style="margin-bottom:8px;">
+              <label class="field-label" for="nikah-pria-nama">Nama Calon Pria</label>
+              <input type="text" id="nikah-pria-nama" class="input-ctrl" value="Raden Mas Suryadi" onchange="calcNikah()" />
+            </div>
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label" for="nikah-pria-date">Tanggal Lahir Pria</label>
+                <input type="date" id="nikah-pria-date" class="input-ctrl" value="1995-05-14" onchange="calcNikah()" />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="nikah-pria-time">Jam Lahir</label>
+                <input type="time" id="nikah-pria-time" class="input-ctrl" value="07:30" onchange="calcNikah()" />
+              </div>
+            </div>
+          </div>
+
+          <!-- MEMPELAI WANITA -->
+          <div style="background:var(--ivory-panel); border:1px solid var(--border-gold); border-radius:12px; padding:14px;">
+            <div style="font-weight:800; color:var(--soga-red); margin-bottom:10px; font-size:13.5px;">Calon Mempelai Wanita</div>
+            <div class="field-group" style="margin-bottom:8px;">
+              <label class="field-label" for="nikah-wanita-nama">Nama Calon Wanita</label>
+              <input type="text" id="nikah-wanita-nama" class="input-ctrl" value="Endah Lestari" onchange="calcNikah()" />
+            </div>
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label" for="nikah-wanita-date">Tanggal Lahir Wanita</label>
+                <input type="date" id="nikah-wanita-date" class="input-ctrl" value="1997-08-21" onchange="calcNikah()" />
+              </div>
+              <div class="field-group">
+                <label class="field-label" for="nikah-wanita-time">Jam Lahir</label>
+                <input type="time" id="nikah-wanita-time" class="input-ctrl" value="09:00" onchange="calcNikah()" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3 sans">
+          <div class="field-group">
+            <label class="field-label" for="nikah-target-month">Bulan Rencana Akad</label>
+            <select id="nikah-target-month" class="input-ctrl" onchange="calcNikah()"></select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="nikah-target-year">Tahun Rencana Akad</label>
+            <select id="nikah-target-year" class="input-ctrl" onchange="calcNikah()"></select>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="nikah-rule">Paugeran Pergantian Hari</label>
+            <select id="nikah-rule" class="input-ctrl" onchange="calcNikah()">
+              <option value="wiwit" selected>Wiwit 12:01 WIB (Tengah Hari)</option>
+              <option value="masehi">Standar 00:01 WIB (Masehi)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- HASIL KECOCOKAN JODOH & NARASI -->
+      <div class="card" id="nikah-jodoh-card">
+        <div class="card-header-row">
+          <h3 class="card-title">Analisis Kecocokan Jodoh &amp; Pétung Nama Pasangan</h3>
+          <span class="soga-tag sans">Primbon Perjodohan Lengkap</span>
+        </div>
+        <div id="nikah-summary-grid" class="grid-2" style="margin-bottom:14px;"></div>
+        <div id="nikah-jodoh-narrative"></div>
+      </div>
+
+      <!-- REKOMENDASI HARI BAIK AKAD NIKAH -->
+      <div class="card">
+        <div class="card-header-row">
+          <h3 class="card-title">Rekomendasi Hari Baik Akad Nikah</h3>
+          <span class="green-tag sans" id="nikah-month-label">Bulan Rencana</span>
+        </div>
+        <p class="sans" style="font-size:13px; color:var(--ink-muted); margin-top:0;">
+          Tanggal disaring otomatis dengan menghindari hari <em>Geblag</em> mempelai, <em>Taliwangke</em>, <em>Samparwangke</em>, serta memadukan Neptu Weton + Neptu Nama kedua calon pengantin.
+        </p>
+        <div class="table-wrap sans">
+          <table class="primbon-table">
+            <thead>
+              <tr>
+                <th>Tanggal Masehi &amp; Jawa</th>
+                <th>Weton &amp; Neptu Hari</th>
+                <th>Pétung Akad (Weton + Nama)</th>
+                <th>Keterangan Primbon</th>
+              </tr>
+            </thead>
+            <tbody id="nikah-days-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="action-bar-section sans no-print">
+          <button type="button" class="btn-primary" onclick="printSection('panel-nikah')">
+            <span>Cetak / Simpan PDF Pawiwahan &amp; Jodoh</span>
+          </button>
+          <button type="button" class="btn-secondary" onclick="saveSectionFile('panel-nikah', 'Laporan_Hari_Baik_Pawiwahan')">
+            <span>Simpan Lembar (.html)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 4: PERINGATAN KEMATIAN / HAUL (3, 40, 100, 1000, 2000, 3000 HARI)
+         ====================================================================== -->
+    <section id="panel-haul" class="tab-panel">
+      <div class="card no-print">
+        <div class="card-header-row">
+          <h2 class="card-title">Pétung Peringatan Kematian (Geblag s.d. 3000 Hari)</h2>
+          <span class="gold-tag sans">Paugeran Wiwit 12:01 WIB</span>
+        </div>
+
+        <div class="grid-4 sans">
+          <div class="field-group">
+            <label class="field-label" for="haul-name">Nama Suwargi</label>
+            <input type="text" id="haul-name" class="input-ctrl" value="SYUKUR" oninput="calcHaul()" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="haul-date">Tanggal Wafat (Geblag)</label>
+            <input type="date" id="haul-date" class="input-ctrl" value="2014-02-28" onchange="calcHaul()" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="haul-time">Jam Wafat (WIB)</label>
+            <input type="time" id="haul-time" class="input-ctrl" value="00:15" onchange="calcHaul()" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="haul-rule">Paugeran Pergantian Hari</label>
+            <select id="haul-rule" class="input-ctrl" onchange="calcHaul()">
+              <option value="wiwit" selected>12:01 WIB (Tahun Jawa)</option>
+              <option value="masehi">00:01 WIB (Masehi)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header-row">
+          <h3 class="card-title" id="haul-report-title">Jadwal Selamatan Peringatan Kematian</h3>
+          <span class="soga-tag sans" id="haul-geblag-badge">Geblag: -</span>
+        </div>
+        <div id="haul-wiwit-note" class="notice-box sans" style="display:none; margin-bottom:14px;"></div>
+
+        <div class="table-wrap sans">
+          <table class="primbon-table">
+            <thead>
+              <tr>
+                <th>Peringatan</th>
+                <th>Rumus Pétung</th>
+                <th>Hari &amp; Pasaran (Weton)</th>
+                <th>Tanggal Masehi</th>
+                <th>Penanggalan Jawa (Asapon)</th>
+              </tr>
+            </thead>
+            <tbody id="haul-tbody"></tbody>
+          </table>
+        </div>
+
+        <div class="action-bar-section sans no-print">
+          <button type="button" class="btn-primary" onclick="printSection('panel-haul')">
+            <span>Cetak / Simpan PDF Jadwal Haul</span>
+          </button>
+          <button type="button" class="btn-secondary" onclick="saveSectionFile('panel-haul', 'Jadwal_Peringatan_Haul')">
+            <span>Simpan Lembar (.html)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 5: KATURANGGAN (ANDHENG-ANDHENG & KATURANGGAN WANITA)
+         ====================================================================== -->
+    <section id="panel-katuranggan" class="tab-panel">
+      <div class="card">
+        <div class="card-header-row">
+          <h2 class="card-title">Ensiklopedia Katuranggan Jawa</h2>
+          <span class="gold-tag sans">Serat Centhini &amp; Primbon Jawa</span>
+        </div>
+
+        <div class="sub-tabs sans">
+          <button type="button" class="sub-tab-btn active" id="subtab-mole" onclick="switchKaturangganMode('mole')">
+            1. Katuranggan Andheng-andheng (26 Titik Tubuh)
+          </button>
+          <button type="button" class="sub-tab-btn" id="subtab-wanita" onclick="switchKaturangganMode('wanita')">
+            2. Katuranggan Wanita (Bentuk Wajah &amp; Postur Tubuh)
+          </button>
+        </div>
+
+        <!-- MODE A: ANDHENG-ANDHENG -->
+        <div id="katuranggan-mole-mode">
+          <div class="grid-2 sans" style="margin-bottom:14px;">
+            <input type="text" id="mole-search" class="input-ctrl" placeholder="Cari letak atau nama andheng-andheng (mis. Manik, Sritumpuk, Dahi, Bibir)..." oninput="renderMoleList()" />
+            <select id="mole-filter-nature" class="input-ctrl" onchange="renderMoleList()">
+              <option value="all">Semua Watak (Utama / Pertanda Baik &amp; Waspada)</option>
+              <option value="baik">Pertanda Utama / Rezeki &amp; Wibawa</option>
+              <option value="waspada">Pertanda Ujian / Perlu Laku Waspada</option>
+            </select>
+          </div>
+
+          <div class="katuranggan-layout">
+            <div class="svg-body-box">
+              <div class="sans" style="font-size:12px; font-weight:700; color:var(--keraton-green); margin-bottom:8px;">
+                Ketuk Titik Emas/Merah pada Peta Tubuh
+              </div>
+              <svg viewBox="0 0 240 430" width="100%" style="max-width:250px; height:auto;">
+                <!-- Siluet Tubuh Manusia -->
+                <circle cx="120" cy="48" r="30" fill="#f3e6c8" stroke="#144d32" stroke-width="2.2" />
+                <path d="M108 77 L108 94 L72 112 L52 215 L68 220 L86 142 L88 235 L82 395 L106 395 L118 255 L122 255 L134 395 L158 395 L152 235 L154 142 L172 220 L188 215 L168 112 L132 94 L132 77 Z" fill="#f3e6c8" stroke="#144d32" stroke-width="2.2" stroke-linejoin="round" />
+                <!-- Garis Wajah Ringkas -->
+                <circle cx="109" cy="44" r="2.2" fill="#5d4d42" />
+                <circle cx="131" cy="44" r="2.2" fill="#5d4d42" />
+                <path d="M114 61 Q120 65 126 61" stroke="#7c2418" stroke-width="1.8" fill="none" />
+                <!-- Titik-titik Andheng-andheng Interaktif -->
+                <g id="svg-mole-points"></g>
+              </svg>
+              <div class="sans" style="font-size:11px; color:var(--ink-muted); margin-top:6px;">
+                Hijau: Pertanda Utama • Merah Soga: Perlu Laku Waspada
+              </div>
+            </div>
+
+            <div>
+              <div id="mole-detail-highlight" class="notice-box sans" style="margin-top:0; margin-bottom:12px;">
+                Pilih salah satu titik pada peta tubuh atau daftar di bawah untuk membaca makna katuranggannya.
+              </div>
+              <div id="mole-list-container" style="max-height:460px; overflow-y:auto; padding-right:4px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODE B: KATURANGGAN WANITA (WAJAH & POSTUR) -->
+        <div id="katuranggan-wanita-mode" style="display:none;">
+          <div class="grid-2 sans" style="margin-bottom:14px;">
+            <input type="text" id="wanita-search" class="input-ctrl" placeholder="Cari katuranggan wanita (mis. Padma Negara, Sri Tumurun, Sekar Kedhaton)..." oninput="renderWanitaList()" />
+            <select id="wanita-cat-filter" class="input-ctrl" onchange="renderWanitaList()">
+              <option value="all">Semua Kategori (Wajah, Postur &amp; Gerak)</option>
+              <option value="wajah">Bentuk Wajah, Mata &amp; Pasuryan</option>
+              <option value="postur">Postur &amp; Perawakan Tubuh</option>
+              <option value="gerak">Cara Berjalan &amp; Tutur Kata</option>
+            </select>
+          </div>
+          <div id="wanita-list-container" class="grid-2"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       NAVIGASI BAWAH KHUSUS LAYAR PONSEL (MOBILE)
+       ======================================================================== -->
+  <nav class="mobile-bottom-nav sans" aria-label="Menu Ponsel">
+    <button type="button" class="mob-tab active" data-tab="weton" onclick="switchTab('weton')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      <span>Weton</span>
+    </button>
+    <button type="button" class="mob-tab" data-tab="nama" onclick="switchTab('nama')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <span>Aksara</span>
+    </button>
+    <button type="button" class="mob-tab" data-tab="nikah" onclick="switchTab('nikah')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span>Pawiwahan</span>
+    </button>
+    <button type="button" class="mob-tab" data-tab="haul" onclick="switchTab('haul')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Haul</span>
+    </button>
+    <button type="button" class="mob-tab" data-tab="katuranggan" onclick="switchTab('katuranggan')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a6.5 6.5 0 0 1 13 0"/></svg>
+      <span>Katuranggan</span>
+    </button>
+  </nav>
+
+  <div id="toast-box" class="toast-box sans" role="status"></div>
+
+  <footer class="footer-note sans">
+    <strong>Pétungan Jawa &amp; Primbon Agung</strong> • Komunitas Aksara Segajabung • Untuk Kalangan Sendiri<br/>
+    Disusun sebagai sarana ikhtiar dan introspeksi diri anggota komunitas.
+  </footer>
+
+  <!-- ========================================================================
+       MESIN PERHITUNGAN & BASIS DATA LENGKAP (100% OFFLINE)
+       ======================================================================== -->
+  <script>
+    /* ========================================================================
+       1. DATA KALENDER JAWA (TERKALIBRASI: 22 DES 2015 = SELASA KLIWON, NEPTU 11)
+       ======================================================================== */
+    const SAPTAWARA = [
+      { id: 0, name: 'Minggu', kawi: 'Radite', neptu: 5 },
+      { id: 1, name: 'Senin',  kawi: 'Soma',    neptu: 4 },
+      { id: 2, name: 'Selasa', kawi: 'Anggara', neptu: 3 },
+      { id: 3, name: 'Rabu',   kawi: 'Buda',    neptu: 7 },
+      { id: 4, name: 'Kamis',  kawi: 'Respati', neptu: 8 },
+      { id: 5, name: 'Jumat',  kawi: 'Sukra',   neptu: 6 },
+      { id: 6, name: 'Sabtu',  kawi: 'Tumpak',  neptu: 9 }
+    ];
+
+    const PANCAWARA = [
+      { id: 0, name: 'Legi',   kawi: 'Manis',  neptu: 5, arah: 'Timur (Putih)' },
+      { id: 1, name: 'Pahing', kawi: 'Pahit',  neptu: 9, arah: 'Selatan (Merah)' },
+      { id: 2, name: 'Pon',    kawi: 'Petak',  neptu: 7, arah: 'Barat (Kuning)' },
+      { id: 3, name: 'Wage',   kawi: 'Cemeng', neptu: 4, arah: 'Utara (Hitam)' },
+      { id: 4, name: 'Kliwon', kawi: 'Kasih',  neptu: 8, arah: 'Tengah (Mancawarna)' }
+    ];
+
+    const PARINGKELAN_6 = ['Tungle', 'Aryang', 'Wurukung', 'Paningron', 'Uwas', 'Mawulu'];
+
+    const WUKU_30 = [
+      'Sinta', 'Landep', 'Wukir', 'Kuranthil', 'Tolu',
+      'Gumbreg', 'Warigalit', 'Warigagung', 'Julungwangi', 'Sungsang',
+      'Galungan', 'Kuningan', 'Langkir', 'Mandhasiya', 'Julungpujut',
+      'Pahang', 'Kuruwelut', 'Marakeh', 'Tambir', 'Medhangkungan',
+      'Maktal', 'Wuye', 'Manahil', 'Prangbakat', 'Bala',
+      'Wugu', 'Wayang', 'Kulawu', 'Dukut', 'Watugunung'
+    ];
+
+    const BULAN_INDO = [
+      'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+      'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+    ];
+
+    const BULAN_JAWA = [
+      'Sura', 'Sapar', 'Mulud', 'Bakda Mulud', 'Jumadil Awal', 'Jumadil Akhir',
+      'Rejeb', 'Ruwah', 'Pasa', 'Sawal', 'Dulkangidah', 'Besar'
+    ];
+
+    const TAHUN_KURUP_ASAPON = [
+      { name: 'Alip',    days: 354 },
+      { name: 'Ehe',     days: 355 },
+      { name: 'Jimawal', days: 354 },
+      { name: 'Je',      days: 354 },
+      { name: 'Dal',     days: 355 },
+      { name: 'Be',      days: 354 },
+      { name: 'Wawu',    days: 354 },
+      { name: 'Jimakir', days: 355 }
+    ];
+
+    const WINDU_4 = ['Adi', 'Kunthara', 'Sengara', 'Sancaya'];
+
+    const WANCI_12 = [
+      { start: 0,  end: 1,  name: 'Tengah Wengi',  watak: 'Tenang, batin bening, suka merenung dan mudah menangkap isyarat halus.' },
+      { start: 1,  end: 3,  name: 'Lingsir Wengi', watak: 'Tekun, tahan uji dalam tirakat/kerja berat, berjiwa penolong dalam diam.' },
+      { start: 3,  end: 5,  name: 'Bedhug Telu / Parak Esuk', watak: 'Peka terhadap keadaan sekitar, rajin bangun pagi, rezekinya terbuka lewat ketekunan.' },
+      { start: 5,  end: 6,  name: 'Byar / Bang-bang Wetan', watak: 'Optimis, membawa harapan baru, mudah diterima di lingkungan pergaulan.' },
+      { start: 6,  end: 8,  name: 'Gumatel',       watak: 'Cekatan, ringan tangan membantu sesama, pikirannya jernih saat mengambil keputusan.' },
+      { start: 8,  end: 10, name: 'Pecat Sawed',   watak: 'Mandiri, pekerja keras, tegas memegang prinsip namun tetap welas asih.' },
+      { start: 10, end: 12, name: 'Wisaya',        watak: 'Cerdik, penuh perhitungan matang, pandai membaca peluang usaha.' },
+      { start: 12, end: 13, name: 'Bedhug',        watak: 'Berwibawa tinggi, berjiwa pemimpin, ucapannya sering didengar orang banyak.' },
+      { start: 13, end: 15, name: 'Lingsir Kulon', watak: 'Sabar, teliti, berhati-hati dalam bertindak, pandai menjaga rahasia.' },
+      { start: 15, end: 17, name: 'Asar',          watak: 'Supel, dermawan, rezekinya mengalir pada usia dewasa.' },
+      { start: 17, end: 19, name: 'Surup / Candhikala', watak: 'Perasa, intuitif, memiliki daya tarik batin yang kuat.' },
+      { start: 19, end: 24, name: 'Sirep Bocah / Sirep Jalma', watak: 'Teduh, mampu menenangkan suasana, cocok menjadi penasihat keluarga.' }
+    ];
+
+    // Jangkar Mutlak: Selasa, 22 Desember 2015 = 11 Mulud 1949 Ja (Tahun Jimawal)
+    const ANCHOR_DAY_NUM = Math.floor(Date.UTC(2015, 11, 22) / 86400000);
+
+    function parseDateParts(isoStr) {
+      const [y, m, d] = isoStr.split('-').map(Number);
+      return { y, m, d };
+    }
+
+    function toDayNumber(y, m, d) {
+      return Math.floor(Date.UTC(y, m - 1, d) / 86400000);
+    }
+
+    function fromDayNumber(dayNum) {
+      const dt = new Date(dayNum * 86400000);
+      return {
+        y: dt.getUTCFullYear(),
+        m: dt.getUTCMonth() + 1,
+        d: dt.getUTCDate()
+      };
+    }
+
+    function mod(n, m) {
+      return ((n % m) + m) % m;
+    }
+
+    function getEffectiveDayNumber(isoDate, timeStr, rule) {
+      const { y, m, d } = parseDateParts(isoDate);
+      const baseDay = toDayNumber(y, m, d);
+      const [hh, mm] = (timeStr || '08:00').split(':').map(Number);
+      const totalMinutes = (hh * 60) + mm;
+      let shifted = false;
+      let shiftReason = '';
+
+      if (rule === 'wiwit') {
+        if (totalMinutes >= (12 * 60 + 1)) {
+          shifted = true;
+          shiftReason = `Jam ${timeStr} WIB sudah melewati batas Wiwit (12:01 WIB), sehingga menurut paugeran kalender Jawa hari sudah berganti maju +1 hari.`;
+          return { dayNum: baseDay + 1, baseDay, shifted, shiftReason, hh, mm };
+        }
+      } else {
+        if (totalMinutes === 0) {
+          shifted = true;
+          shiftReason = `Jam 00:00 WIB belum memasuki 00:01 WIB, sehingga masih terhitung hari sebelumnya (-1 hari).`;
+          return { dayNum: baseDay - 1, baseDay, shifted, shiftReason, hh, mm };
+        }
+      }
+      return { dayNum: baseDay, baseDay, shifted, shiftReason, hh, mm };
+    }
+
+    function calculateJavaneseDateFromDayNum(dayNum) {
+      const diff = dayNum - ANCHOR_DAY_NUM;
+      const saptaIdx = mod(2 + diff, 7);
+      const pancaIdx = mod(4 + diff, 5);
+      const paringkelanIdx = mod(5 + diff, 6);
+
+      const daysSinceSundayAtAnchor = 2;
+      const totalWukuDays = diff + daysSinceSundayAtAnchor;
+      const wukuOffset = Math.floor(totalWukuDays / 7);
+      const wukuIdx = mod(3 + wukuOffset, 30);
+
+      // 1 Sura 1949 Ja = 69 hari sebelum 22 Des 2015 (11 Mulud 1949 Ja)
+      const sura1949DayNum = ANCHOR_DAY_NUM - 69;
+      let remDays = dayNum - sura1949DayNum;
+      let jYear = 1949;
+      let yearCycleIdx = 2; // Jimawal
+
+      if (remDays >= 0) {
+        while (remDays >= TAHUN_KURUP_ASAPON[yearCycleIdx].days) {
+          remDays -= TAHUN_KURUP_ASAPON[yearCycleIdx].days;
+          jYear++;
+          yearCycleIdx = (yearCycleIdx + 1) % 8;
+        }
+      } else {
+        while (remDays < 0) {
+          yearCycleIdx = mod(yearCycleIdx - 1, 8);
+          jYear--;
+          remDays += TAHUN_KURUP_ASAPON[yearCycleIdx].days;
+        }
+      }
+
+      const isKabisat = TAHUN_KURUP_ASAPON[yearCycleIdx].days === 355;
+      let jMonthIdx = 0;
+      for (let b = 0; b < 12; b++) {
+        let len = (b % 2 === 0) ? 30 : 29;
+        if (b === 11 && isKabisat) len = 30;
+        if (remDays < len) {
+          jMonthIdx = b;
+          break;
+        }
+        remDays -= len;
+      }
+      const jDay = remDays + 1;
+      const winduIdx = mod(Math.floor((jYear - 1939) / 8), 4);
+
+      const saptawara = SAPTAWARA[saptaIdx];
+      const pancawara = PANCAWARA[pancaIdx];
+      const neptu = saptawara.neptu + pancawara.neptu;
+      const mParts = fromDayNumber(dayNum);
+
+      return {
+        dayNum,
+        mParts,
+        masehiStr: `${saptawara.name}, ${mParts.d} ${BULAN_INDO[mParts.m - 1]} ${mParts.y}`,
+        wetonStr: `${saptawara.name} ${pancawara.name}`,
+        saptawara,
+        pancawara,
+        neptu,
+        wuku: WUKU_30[wukuIdx],
+        wukuIdx,
+        paringkelan: PARINGKELAN_6[paringkelanIdx],
+        jDay,
+        jMonth: BULAN_JAWA[jMonthIdx],
+        jYear,
+        tahunJawa: TAHUN_KURUP_ASAPON[yearCycleIdx].name,
+        windu: WINDU_4[winduIdx]
+      };
+    }
+
+    /* ========================================================================
+       2. PANCASUDA, 35 WATAK WETON & 30 WATAK WUKU
+       ======================================================================== */
+    const PANCASUDA_7 = [
+      { rem: 1, name: 'Wasesa Segara', desc: 'Seluas samudra: berwibawa, pemaaf, sabar menghadapi cobaan, dan rezekinya luas serta mudah dihormati masyarakat.' },
+      { rem: 2, name: 'Tunggak Semi', desc: 'Tunas yang terus tumbuh: rezekinya selalu ada pengganti meski sempat habis, ulet, dan pandai bangkit dari kesulitan.' },
+      { rem: 3, name: 'Satriya Wibawa', desc: 'Luhur budinya: selalu memperoleh kemuliaan, disegani atasan maupun bawahan, serta cocok menjadi panutan.' },
+      { rem: 4, name: 'Sumur Sinaba', desc: 'Sumur tempat menimba ilmu: berwawasan luas, cerdas, ucapannya berbobot, dan sering menjadi tempat bertanya orang lain.' },
+      { rem: 5, name: 'Satriya Wirang', desc: 'Perlu laku sabar & rendah hati: sering menemui ujian kesalahpahaman atau rasa malu bila kurang berhati-hati dalam berucap.' },
+      { rem: 6, name: 'Bumi Kapetak', desc: 'Pekerja keras dan tahan banting: suka bekerja di balik layar, kuat menahan derita, namun perlu rajin bersedekah agar hatinya lapang.' },
+      { rem: 0, name: 'Lebu Katiup Angin', desc: 'Dinamis dan sering berpindah: rezeki maupun keinginannya mudah datang dan pergi sehingga perlu belajar menabung dan menata fokus.' }
+    ];
+
+    const PANCASUDA_5 = [
+      { rem: 1, name: 'Sri', desc: 'Simbol kemakmuran, kesuburan pangan, murah rezeki, dan membawa kesejukan dalam keluarga.' },
+      { rem: 2, name: 'Lungguh', desc: 'Simbol kedudukan, pangkat, kehormatan, dan kepercayaan dari lingkungan sekitar.' },
+      { rem: 3, name: 'Gedhong', desc: 'Simbol kecukupan harta benda, pandai mengelola simpanan, dan kokoh secara lahiriah.' },
+      { rem: 4, name: 'Lara', desc: 'Simbol ujian fisik atau batin yang melatih ketangguhan serta kepekaan spiritual.' },
+      { rem: 0, name: 'Pati', desc: 'Simbol perlunya tirakat, kehati-hatian ekstra, dan pengendalian hawa nafsu agar terhindar dari kebuntuan.' }
+    ];
+
+    const LINTANG_35 = {
+      'Minggu Legi':   { lintang: 'Lintang Kala Sungsang', parasan: 'Aras Pepet', lakuning: 'Lakuning Pendhita Sakti', watak: 'Berwibawa, tenang di luar namun tajam pikirannya, menyukai hal-hal mendalam dan kebijaksanaan.', rezeki: 'Cocok di bidang pendidikan, konsultan, hukum, atau kerohanian.', saran: 'Hindari sikap terlalu tertutup dan curiga berlebihan.' },
+      'Minggu Pahing': { lintang: 'Lintang Gajah', parasan: 'Lakuning Rembulan', lakuning: 'Lakuning Rembulan', watak: 'Cerdas, berwibawa, memesona, namun terkadang keras kepala mempertahankan pendapatnya.', rezeki: 'Cocok sebagai pemimpin, pengusaha, atau pejabat publik.', saran: 'Belajarlah mendengarkan masukan orang terdekat.' },
+      'Minggu Pon':    { lintang: 'Lintang Patrem', parasan: 'Aras Kembang', lakuning: 'Lakuning Bumi', watak: 'Pekerja keras, sensitif, berhati lembut namun mudah tersinggung bila diremehkan.', rezeki: 'Baik di bidang seni, perdagangan, maupun pertanian.', saran: 'Kendalikan emosi saat menghadapi kritik.' },
+      'Minggu Wage':   { lintang: 'Lintang Waluku', parasan: 'Lakuning Angin', lakuning: 'Lakuning Angin', watak: 'Pemurah, suka menolong, wawasannya luas, tetapi terkadang sulit ditebak jalan pikirannya.', rezeki: 'Cocok di bidang komunikasi, perjalanan, dan wirausaha.', saran: 'Jaga konsistensi dalam menyelesaikan satu tujuan.' },
+      'Minggu Kliwon': { lintang: 'Lintang Laweyan', parasan: 'Lakuning Lintang', lakuning: 'Lakuning Lintang', watak: 'Pendiam, tegas, pemaaf, dan memiliki daya tarik kepemimpinan yang alami.', rezeki: 'Berpeluang besar meraih kedudukan tinggi bila tekun.', saran: 'Jangan mudah terbawa perasaan saat menolong orang.' },
+
+      'Senin Legi':    { lintang: 'Lintang Kelapa', parasan: 'Lakuning Angin', lakuning: 'Lakuning Angin', watak: 'Sopan, ramah, suka berdiskusi, dan selalu ingin tampil rapi serta tertata.', rezeki: 'Lancar di bidang pelayanan, diplomasi, dan perdagangan.', saran: 'Kurangi kebiasaan mencampuri urusan yang bukan tanggung jawabnya.' },
+      'Senin Pahing':  { lintang: 'Lintang Kukus', parasan: 'Lakuning Lintang', lakuning: 'Lakuning Lintang', watak: 'Jujur, kuat pendirian, pekerja keras, namun bicaranya terkadang ceplas-ceplos.', rezeki: 'Sukses lewat usaha mandiri dan keahlian khusus.', saran: 'Perhalus tutur kata agar tidak melukai perasaan rekan.' },
+      'Senin Pon':     { lintang: 'Lintang Kiriman', parasan: 'Aras Tuding', lakuning: 'Lakuning Srengenge', watak: 'Cerdas, penuh empati, kreatif, dan sering menjadi andalan keluarga.', rezeki: 'Baik di bidang kreatif, teknologi, dan manajemen.', saran: 'Jangan mudah ragu pada kemampuan diri sendiri.' },
+      'Senin Wage':    { lintang: 'Lintang Lembu', parasan: 'Lakuning Geni', lakuning: 'Lakuning Geni', watak: 'Setia, hemat, suka menolong tanpa pamrih, namun cepat tersulut emosi jika tersinggung.', rezeki: 'Stabil bila mampu menahan amarah di tempat kerja.', saran: 'Latih kesabaran sebelum mengambil keputusan penting.' },
+      'Senin Kliwon':  { lintang: 'Lintang Pedati Puyung', parasan: 'Aras Kembang', lakuning: 'Macan Ketawan', watak: 'Sangat mencintai keluarga, mudah memaafkan, lembut hati, namun mudah gelisah.', rezeki: 'Mengalir lewat relasi kekeluargaan dan kerja sama.', saran: 'Perkuat ketenangan batin agar tidak mudah cemas.' },
+
+      'Selasa Legi':   { lintang: 'Lintang Kuda', parasan: 'Lakuning Geni', lakuning: 'Lakuning Geni', watak: 'Tegas, mandiri, berjiwa pelopor, tidak suka dikekang, dan cepat belajar hal baru.', rezeki: 'Cocok menjadi wirausahawan, pengajar, atau pemimpin tim.', saran: 'Redam ego agar hubungan kerja sama tetap harmonis.' },
+      'Selasa Pahing': { lintang: 'Lintang Yuyu', parasan: 'Aras Kembang', lakuning: 'Rudra / Aras Kembang', watak: 'Kreatif, supel, ringan tangan membantu, namun mudah marah bila kesabarannya habis.', rezeki: 'Sangat baik di bidang niaga, kerajinan, dan jasa.', saran: 'Hindari sifat pendendam dan perbanyak sedekah.' },
+      'Selasa Pon':    { lintang: 'Lintang Asu', parasan: 'Aras Pepet', lakuning: 'Sanggar Waringin', watak: 'Teduh, pelindung bagi sesama, jujur, dan teguh memegang janji.', rezeki: 'Rezeki datang dari kepercayaan dan amanah orang lain.', saran: 'Jangan mudah terpengaruh bujukan yang belum jelas.' },
+      'Selasa Wage':   { lintang: 'Lintang Jong Sarat', parasan: 'Lakuning Bumi', lakuning: 'Lakuning Bumi', watak: 'Rendah hati, sabar, suka mengalah demi kerukunan, dan gemar belajar.', rezeki: 'Tumbuh perlahan namun pasti dan tahan guncangan.', saran: 'Tingkatkan rasa percaya diri dalam menyampaikan gagasan.' },
+      'Selasa Kliwon': { lintang: 'Lintang Sidamalung (Anggara Kasih)', parasan: 'Aras Tuding', lakuning: 'Anggara Kasih', watak: 'Pandai berbicara, berwawasan luas, kritis, serta memiliki intuisi tajam dan daya spiritual kuat.', rezeki: 'Cocok di bidang sastra, hukum, komunikasi, perdagangan, maupun kepemimpinan.', saran: 'Jaga lisan dari ucapan tajam dan rutin melakukan laku prihatin/tirakat.' },
+
+      'Rabu Legi':     { lintang: 'Lintang Tangis', parasan: 'Lakuning Rembulan', lakuning: 'Padangon Jagur', watak: 'Menjunjung tinggi kejujuran, setia kawan, bijaksana, dan dihormati lingkungan.', rezeki: 'Lancar berkat jaringan pertemanan yang luas.', saran: 'Jangan terlalu mudah percaya pada janji manis orang baru.' },
+      'Rabu Pahing':   { lintang: 'Lintang Gajahmina', parasan: 'Lakuning Banyu', lakuning: 'Lakuning Banyu', watak: 'Tenang, luwes beradaptasi, cerdas, dan pandai menyimpan rahasia.', rezeki: 'Berlimpah apabila tekun dan tidak boros.', saran: 'Kelola keuangan secara disiplin agar tidak habis tanpa jejak.' },
+      'Rabu Pon':      { lintang: 'Lintang Lumbung', parasan: 'Lakuning Rembulan', lakuning: 'Lakuning Rembulan', watak: 'Penyejuk suasana, pandai bergaul, tekun, dan memiliki selera estetika yang baik.', rezeki: 'Makmur bila menekuni usaha jangka panjang.', saran: 'Kurangi sikap terlalu memikirkan penilaian orang lain.' },
+      'Rabu Wage':     { lintang: 'Lintang Kartika', parasan: 'Aras Tuding', lakuning: 'Sumur Sinaba', watak: 'Cermat, berwawasan luas, ramah, dan menjunjung tata krama.', rezeki: 'Baik di bidang akademis, keuangan, dan administrasi.', saran: 'Hindari sifat terlalu perfeksionis yang melelahkan diri.' },
+      'Rabu Kliwon':   { lintang: 'Lintang Tiwa-tiwa', parasan: 'Lakuning Srengenge', lakuning: 'Lakuning Srengenge', watak: 'Berwibawa, disiplin, peka terhadap penderitaan orang lain, dan berjiwa pemimpin.', rezeki: 'Sangat baik dalam jabatan manajerial maupun usaha besar.', saran: 'Jaga kesehatan dan jangan memforsir tenaga.' },
+
+      'Kamis Legi':    { lintang: 'Lintang Sangkatikel', parasan: 'Lakuning Lintang', lakuning: 'Pahang Ora Pinuju', watak: 'Mandiri, dermawan, loyal kepada sahabat, dan memiliki cita-cita tinggi.', rezeki: 'Sukses di bidang manajemen, perdagangan, dan organisasi.', saran: 'Belajarlah mengendalikan amarah ketika rencana meleset.' },
+      'Kamis Pahing':  { lintang: 'Lintang Salah Ukur', parasan: 'Lakuning Gunung', lakuning: 'Lakuning Gunung', watak: 'Berwawasan luas, bercita-cita luhur, menyayangi keluarga, dan pekerja keras.', rezeki: 'Cenderung berkecukupan dan mampu mengangkat derajat keluarga.', saran: 'Tetap rendah hati saat berada di puncak keberhasilan.' },
+      'Kamis Pon':     { lintang: 'Lintang Bade', parasan: 'Lakuning Srengenge', lakuning: 'Lakuning Srengenge', watak: 'Tegas, berpendirian kokoh, cerdas, dan tidak suka mencampuri urusan orang lain.', rezeki: 'Cocok di bidang keuangan, perbankan, dan wirausaha.', saran: 'Buka ruang dialog lebih luas dengan pasangan dan rekan.' },
+      'Kamis Wage':    { lintang: 'Lintang Kumba', parasan: 'Aras Kembang', lakuning: 'Aras Kembang', watak: 'Taat aturan, sopan, setia, dan penuh pertimbangan sebelum melangkah.', rezeki: 'Stabil dan berkah berkat kejujuran.', saran: 'Jangan memendam kekecewaan terlalu lama.' },
+      'Kamis Kliwon':  { lintang: 'Lintang Naga', parasan: 'Lakuning Banyu', lakuning: 'Lakuning Banyu', watak: 'Optimis, mudah bergaul, pandai berbicara, dan berjiwa pengayom.', rezeki: 'Mengalir deras dari berbagai arah apabila amanah.', saran: 'Waspadai sifat boros dan terlalu mudah iba.' },
+
+      'Jumat Legi':    { lintang: 'Lintang Angsa Angrem', parasan: 'Aras Tuding', lakuning: 'Sanggar Waringin', watak: 'Jujur, lapang dada, suka mengayomi, dan menjadi tempat berlindung keluarga.', rezeki: 'Sering mendapat pertolongan tak terduga saat kesulitan.', saran: 'Jangan menanggung beban orang lain melebihi batas kemampuan.' },
+      'Jumat Pahing':  { lintang: 'Lintang Bubu Bolong', parasan: 'Lakuning Srengenge', lakuning: 'Mantri Sinaroja', watak: 'Mandiri, santun, tutur katanya menarik, dan memiliki tekad baja.', rezeki: 'Sangat baik di bidang usaha mandiri dan kepemimpinan.', saran: 'Kendalikan pengeluaran agar simpanan tetap terjaga.' },
+      'Jumat Pon':     { lintang: 'Lintang Perahu Pegat', parasan: 'Lakuning Lintang', lakuning: 'Lakuning Lintang', watak: 'Tenang, bijaksana, berjiwa sosial tinggi, dan mudah beradaptasi.', rezeki: 'Cocok di bidang kemanusiaan, seni, dan penelitian.', saran: 'Pertegas prinsip agar tidak mudah terbawa arus lingkungan.' },
+      'Jumat Wage':    { lintang: 'Lintang Magelut', parasan: 'Aras Pepet', lakuning: 'Padangon Jagur', watak: 'Jujur, setia, hemat, dan sangat peduli pada kesusahan sesama.', rezeki: 'Rezeki datang dari ketulusan dan ketekunan bekerja.', saran: 'Belajarlah lebih luwes saat menghadapi perubahan mendadak.' },
+      'Jumat Kliwon':  { lintang: 'Lintang Udang', parasan: 'Lakuning Rembulan', lakuning: 'Lakuning Rembulan', watak: 'Anggun, sabar, berwibawa, memiliki kepekaan batin tinggi, dan disegani banyak orang.', rezeki: 'Cocok sebagai pengayom, usahawan, maupun tokoh masyarakat.', saran: 'Gunakan ketajaman batin untuk kebaikan dan hindari sifat mudah tersinggung.' },
+
+      'Sabtu Legi':    { lintang: 'Lintang Begong', parasan: 'Lakuning Rembulan', lakuning: 'Mantri Sinaroja', watak: 'Ceria, pandai bergaul, berjiwa pemimpin, dan mampu mencairkan suasana.', rezeki: 'Lancar dalam bidang negosiasi, perdagangan, dan manajemen.', saran: 'Jaga komitmen agar kepercayaan orang tidak berkurang.' },
+      'Sabtu Pahing':  { lintang: 'Lintang Ru', parasan: 'Lakuning Geni', lakuning: 'Lakuning Geni', watak: 'Berani, dermawan, penuh semangat, namun emosinya mudah meluap bila dikecewakan.', rezeki: 'Berpotensi meraih kemakmuran besar jika mampu menahan emosi.', saran: 'Latih ketenangan batin melalui doa dan tirakat.' },
+      'Sabtu Pon':     { lintang: 'Lintang Sungenge', parasan: 'Lakuning Banyu', lakuning: 'Lakuning Banyu', watak: 'Tanggung jawab tinggi, pemaaf, sabar, dan tidak mudah goyah oleh godaan.', rezeki: 'Stabil dan berkah di usia mapan.', saran: 'Hindari sikap terlalu ingin menonjolkan kehebatan diri.' },
+      'Sabtu Wage':    { lintang: 'Lintang Puwuh Atarung', parasan: 'Lakuning Lintang', lakuning: 'Lakuning Lintang', watak: 'Mandiri, teguh pendirian, hemat, dan tidak suka bergantung pada orang lain.', rezeki: 'Baik di bidang teknis, properti, dan usaha mandiri.', saran: 'Kurangi sikap keras kepala dan mudah cemburu.' },
+      'Sabtu Kliwon':  { lintang: 'Lintang Pagelangan', parasan: 'Lakuning Bumi', lakuning: 'Sanggar Waringin', watak: 'Sabar, cermat, ramah, berwibawa, dan kuat memikul tanggung jawab besar.', rezeki: 'Makmur dan dihormati dalam keluarga maupun masyarakat.', saran: 'Jangan menyimpan beban pikiran sendirian.' }
+    };
+
+    const WATAK_30_WUKU_DETAIL = {
+      'Sinta':         { dewa: 'Bathara Yamadipati', kayu: 'Kendayakan', manuk: 'Gagak', gedhong: 'Di depan', watak: 'Berwibawa, tajam firasatnya, pencemburu namun sangat menyayangi keluarga dan pelindung bagi yang lemah.', candra: 'Pendhita mukti saking laku prihatin.', pantangan: 'Hindari memanjat pohon tinggi atau bepergian jauh ke arah barat pada hari naasnya.' },
+      'Landep':        { dewa: 'Bathara Mahadewa', kayu: 'Gendhayakan', manuk: 'Atat Kembang', gedhong: 'Di depan', watak: 'Cerdas, tajam pikirannya seperti pusaka landep, rupawan, dan senang menolong tanpa pamrih.', candra: 'Keris pusaka kang sinungging emas.', pantangan: 'Jangan bermain senjata tajam atau menyakiti hati orang tua.' },
+      'Wukir':         { dewa: 'Bathara Mahayekti', kayu: 'Nagasari', manuk: 'Manyar', gedhong: 'Di depan', watak: 'Kokoh pendiriannya bagai gunung, jujur, teliti dalam bekerja, dan disegani kawan maupun lawan.', candra: 'Gunung agung kang kebak wit-witan.', pantangan: 'Hindari kesombongan dan meremehkan orang kecil.' },
+      'Kuranthil':     { dewa: 'Bathara Langsur', kayu: 'Ingas', manuk: 'Slindhitan', gedhong: 'Di kiri', watak: 'Lincah, pandai mencari peluang rezeki, gemar berpetualang/merantau, namun terkadang sulit menetap di satu tempat.', candra: 'Manuk slindhitan mencok ing pang.', pantangan: 'Waspadai sifat boros dan jangan memanjat pohon rapuh.' },
+      'Tolu':          { dewa: 'Bathara Bayu', kayu: 'Walikukun', manuk: 'Branjangan', gedhong: 'Di depan', watak: 'Kuat tekadnya, pemberani, suka keadilan, namun amarahnya besar jika prinsipnya dilanggar.', candra: 'Angin gedhe kang ngobahake mendhung.', pantangan: 'Kendalikan amarah dan hindari pertengkaran.' },
+      'Gumbreg':       { dewa: 'Bathara Candra', kayu: 'Beringin', manuk: 'Ayam Alas', gedhong: 'Di kiri', watak: 'Teduh, pengayom, tutur katanya halus dan menenangkan, serta berjiwa pemimpin yang bijak.', candra: 'Rembulan purnama madhangi wengi.', pantangan: 'Jangan menyeberangi sungai besar saat banjir.' },
+      'Warigalit':     { dewa: 'Bathara Asmara', kayu: 'Sulastri', manuk: 'Kepodhang', gedhong: 'Di atas', watak: 'Menawan, berjiwa seni tinggi, lembut hati, namun mudah terbawa perasaan.', candra: 'Sekar sumebar ing taman sari.', pantangan: 'Hindari perselisihan asmara dan jaga kesetiaan.' },
+      'Warigagung':    { dewa: 'Bathara Mahayekti', kayu: 'Cemara', manuk: 'Betet', gedhong: 'Di kanan', watak: 'Berwibawa besar, rezekinya melimpah, pekerja keras, dan menjadi tumpuan keluarga besar.', candra: 'Wit cemara kang ngrembaka.', pantangan: 'Jangan kikir bersedekah saat rezeki lapang.' },
+      'Julungwangi':   { dewa: 'Bathara Sambu', kayu: 'Cempaka', manuk: 'Kutilang', gedhong: 'Di kanan', watak: 'Harum namanya di masyarakat, dermawan, ramah, dan ucapannya sering dituruti orang.', candra: 'Kembang cempaka wangi ing latar.', pantangan: 'Waspadai godaan pujian berlebihan.' },
+      'Sungsang':      { dewa: 'Bathara Gana', kayu: 'Tangan', manuk: 'Nori', gedhong: 'Di belakang', watak: 'Cerdik, berani menentang arus demi kebenaran, pekerja keras, namun sering kurang sabar.', candra: 'Banyu mili munggah gunung.', pantangan: 'Hindari tindakan tergesa-gesa tanpa perhitungan.' },
+      'Galungan':      { dewa: 'Bathara Kamajaya', kayu: 'Tangan', manuk: 'Bido', gedhong: 'Di kiri', watak: 'Setia, romantis, pandai menghibur orang yang berduka, dan rezekinya selalu tercukupi.', candra: 'Satriya bagus kang alus budine.', pantangan: 'Jaga kebersihan niat dalam setiap pekerjaan.' },
+      'Kuningan':      { dewa: 'Bathara Indra', kayu: 'Wijayakusuma', manuk: 'Urang-urangan', gedhong: 'Di belakang', watak: 'Luhur derajatnya, cermat, rapi, menjaga kehormatan diri, namun agak pemilih dalam bergaul.', candra: 'Cahya kuning sumunar ing langit.', pantangan: 'Jangan meremehkan nasihat orang yang lebih tua.' },
+      'Langkir':       { dewa: 'Bathara Kala', kayu: 'Ingas & Cemara', manuk: 'Gemak', gedhong: 'Di depan', watak: 'Pemberani, tegas, tidak takut rintangan, tetapi harus banyak tirakat agar terhindar dari musuh.', candra: 'Macan gembong metu saking wana.', pantangan: 'Perbanyak sedekah dan hindari perjalanan malam tanpa keperluan.' },
+      'Mandhasiya':    { dewa: 'Bathara Brama', kayu: 'Asam', manuk: 'Platuk Bawang', gedhong: 'Di belakang', watak: 'Bersemangat menyala-nyala, kuat pendirian, pelindung keluarga, namun cepat panas hatinya.', candra: 'Geni murub madhangi peteng.', pantangan: 'Hindari bermain api atau keputusan di saat marah.' },
+      'Julungpujut':   { dewa: 'Bathara Guritna', kayu: 'Rempelas', manuk: 'Emprit', gedhong: 'Di kanan', watak: 'Suka keramaian, pandai berbicara di depan umum, supel, dan berjiwa pemimpin.', candra: 'Manuk emprit ngumpul ing sawah.', pantangan: 'Jangan suka memamerkan kelebihan harta.' },
+      'Pahang':        { dewa: 'Bathara Tantra', kayu: 'Kendayakan', manuk: 'Cocak', gedhong: 'Di kiri', watak: 'Jujur apa adanya, dermawan, tidak suka basa-basi, dan sering menolong orang kesusahan.', candra: 'Toya bening ing sendhang.', pantangan: 'Jaga ucapan agar tidak menyinggung perasaan.' },
+      'Kuruwelut':     { dewa: 'Bathara Wisnu', kayu: 'Parijatha', manuk: 'Sepahan', gedhong: 'Di atas', watak: 'Bijaksana, sabar, berwawasan luas, dan mampu menyelesaikan masalah rumit dengan tenang.', candra: 'Samudra jembar tanpa tepi.', pantangan: 'Jangan mudah terbawa kesedihan masa lalu.' },
+      'Marakeh':       { dewa: 'Bathara Surenggana', kayu: 'Trengguli', manuk: 'Dampling', gedhong: 'Di atas', watak: 'Cerdas, tangguh, hemat, dan pandai membangun usaha dari nol hingga besar.', candra: 'Lintang panjer rina.', pantangan: 'Hindari sifat terlalu curiga pada rekan kerja.' },
+      'Tambir':        { dewa: 'Bathara Siwah', kayu: 'Upas', manuk: 'Prenjak', gedhong: 'Di belakang', watak: 'Peka firasatnya, lahir dan batinnya sering berbeda (tampak keras di luar padahal lembut di dalam).', candra: 'Mendhung peteng ngemu udan.', pantangan: 'Perbanyak doa keselamatan dan jaga kesehatan.' },
+      'Medhangkungan': { dewa: 'Bathara Basuki', kayu: 'Plasa', manuk: 'Pelung', gedhong: 'Di atas', watak: 'Berbudi luhur, menyukai ketenteraman, tekun menuntut ilmu, dan panjang umur.', candra: 'Segara tenang tanpa ombak.', pantangan: 'Jangan menunda-nunda kewajiban.' },
+      'Maktal':        { dewa: 'Bathara Sakri', kayu: 'Nagasari', manuk: 'Ayam Alas', gedhong: 'Di kanan', watak: 'Berwibawa, dermawan, pandai mencari nafkah, dan dihormati karena kebaikan budinya.', candra: 'Raja mudha kang wicaksana.', pantangan: 'Hindari pertikaian masalah harta.' },
+      'Wuye':          { dewa: 'Bathara Kuwera', kayu: 'Tal', manuk: 'Gogik', gedhong: 'Di kiri', watak: 'Luwes, mudah mendapat kepercayaan, dermawan, dan ahli dalam perdagangan.', candra: 'Lumbung pari kebak isi.', pantangan: 'Waspadai orang yang berniat memanfaatkan kebaikan hati.' },
+      'Manahil':       { dewa: 'Bathara Citragotra', kayu: 'Tengsek', manuk: 'Sepahan', gedhong: 'Di atas', watak: 'Teliti, waspada, berhati-hati dalam melangkah, dan setia kepada sahabat.', candra: 'Prajurit waspada ing tapel wates.', pantangan: 'Jangan berjalan sendirian di tempat sunyi.' },
+      'Prangbakat':    { dewa: 'Bathara Bisma', kayu: 'Tirisan', manuk: 'Urang-urangan', gedhong: 'Di depan', watak: 'Ksatria sejati, teguh memegang janji, berani membela kebenaran, namun agak keras hati.', candra: 'Senopati ing palagan.', pantangan: 'Hindari berselisih paham dengan saudara kandung.' },
+      'Bala':          { dewa: 'Bathara Durga', kayu: 'Cemara', manuk: 'Ayam Alas', gedhong: 'Di depan', watak: 'Cerdik, gesit, banyak akal, dan pandai keluar dari situasi sulit.', candra: 'Pasukan kang siaga ing karya.', pantangan: 'Perbanyak zikir dan doa perlindungan diri.' },
+      'Wugu':          { dewa: 'Bathara Singajalma', kayu: 'Wuni', manuk: 'Kepodhang', gedhong: 'Di belakang', watak: 'Berwawasan luas, ramah, sabar, dan pandai menjaga keharmonisan rumah tangga.', candra: 'Manuk kepodhang mabur ing taman.', pantangan: 'Jangan menyimpan dendam.' },
+      'Wayang':        { dewa: 'Bathara Sri', kayu: 'Cempaka', manuk: 'Ayam Alas', gedhong: 'Di kanan', watak: 'Murah rezeki, penyejuk hati, berjiwa seni dan spiritual tinggi, serta dicintai banyak orang.', candra: 'Dewi Sri tumurun maring bumi.', pantangan: 'Jaga kerendahan hati dan rajin berbagi pangan.' },
+      'Kulawu':        { dewa: 'Bathara Sadana', kayu: 'Tal', manuk: 'Nori', gedhong: 'Di belakang', watak: 'Cakap mengelola keuangan, tidak suka pamer, tekun bekerja, dan makmur di hari tua.', candra: 'Banyu sendhang kang bening.', pantangan: 'Hindari sifat terlalu hemat hingga enggan berderma.' },
+      'Dukut':         { dewa: 'Bathara Sakri', kayu: 'Pandan', manuk: 'Ayam Alas', gedhong: 'Di kanan', watak: 'Menarik penampilannya, cermat, tegas, dan selalu menjaga kehormatan keluarga.', candra: 'Pandan wangi ing pinggir telaga.', pantangan: 'Hati-hati dalam memilih pasangan usaha.' },
+      'Watugunung':    { dewa: 'Bathara Antaboga & Dewi Sinta', kayu: 'Wijayakusuma', manuk: 'Gogik', gedhong: 'Di belakang', watak: 'Sangat cerdas, mencintai ilmu pengetahuan dan seni, berjiwa spiritual dalam, namun mudah gelisah.', candra: 'Watu agung ing pucuking gunung.', pantangan: 'Perbanyak tirakat, sedekah, dan bersyukur atas nikmat.' }
+    };
+
+    /* ========================================================================
+       3. MESIN AKSARA JAWA SIMPLIFIED KAJ I 2021 (SCRIPTIO CONTINUA) + KAMUS 72 NAMA
+       ======================================================================== */
+    const CARAKAN_20 = [
+      { latin: 'ha',  aksara: 'ꦲ', pasangan: '꧀ꦲ', num20: 1,  num9: 1 },
+      { latin: 'na',  aksara: 'ꦤ', pasangan: '꧀ꦤ', num20: 2,  num9: 2 },
+      { latin: 'ca',  aksara: 'ꦕ', pasangan: '꧀ꦕ', num20: 3,  num9: 3 },
+      { latin: 'ra',  aksara: 'ꦫ', pasangan: '꧀ꦫ', num20: 4,  num9: 4 },
+      { latin: 'ka',  aksara: 'ꦏ', pasangan: '꧀ꦏ', num20: 5,  num9: 5 },
+      { latin: 'da',  aksara: 'ꦢ', pasangan: '꧀ꦢ', num20: 6,  num9: 6 },
+      { latin: 'ta',  aksara: 'ꦠ', pasangan: '꧀ꦠ', num20: 7,  num9: 7 },
+      { latin: 'sa',  aksara: 'ꦱ', pasangan: '꧀ꦱ', num20: 8,  num9: 8 },
+      { latin: 'wa',  aksara: 'ꦮ', pasangan: '꧀ꦮ', num20: 9,  num9: 9 },
+      { latin: 'la',  aksara: 'ꦭ', pasangan: '꧀ꦭ', num20: 10, num9: 1 },
+      { latin: 'pa',  aksara: 'ꦥ', pasangan: '꧀ꦥ', num20: 11, num9: 2 },
+      { latin: 'dha', aksara: 'ꦝ', pasangan: '꧀ꦝ', num20: 12, num9: 3 },
+      { latin: 'ja',  aksara: 'ꦗ', pasangan: '꧀ꦗ', num20: 13, num9: 4 },
+      { latin: 'ya',  aksara: 'ꦪ', pasangan: '꧀ꦪ', num20: 14, num9: 5 },
+      { latin: 'nya', aksara: 'ꦚ', pasangan: '꧀ꦚ', num20: 15, num9: 6 },
+      { latin: 'ma',  aksara: 'ꦩ', pasangan: '꧀ꦩ', num20: 16, num9: 7 },
+      { latin: 'ga',  aksara: 'ꦒ', pasangan: '꧀ꦒ', num20: 17, num9: 8 },
+      { latin: 'ba',  aksara: 'ꦧ', pasangan: '꧀ꦧ', num20: 18, num9: 9 },
+      { latin: 'tha', aksara: 'ꦛ', pasangan: '꧀ꦛ', num20: 19, num9: 1 },
+      { latin: 'nga', aksara: 'ꦔ', pasangan: '꧀ꦔ', num20: 20, num9: 2 }
+    ];
+
+    const CARAKAN_MAP = Object.fromEntries(CARAKAN_20.map(c => [c.latin, c]));
+
+    const DEFAULT_NAMA_DATABASE = [
+      // Gelar & Contoh Utama
+      { latin: 'Mas Lurah Dwija Prasetya Prasaja', phonetic: 'mas lurah dwija prasetya prasaja', unicode: 'ꦩꦱ꧀ꦭꦸꦫꦃꦢ꧀ꦮꦶꦗꦥꦿꦱꦼꦠꦾꦥꦿꦱꦗ', catatan: 'Gelar & nama lengkap: gabungan Scriptio Continua (pasangan la, pasangan wa, cakra, e pepet, pengkal).' },
+      { latin: 'Mas', phonetic: 'mas', unicode: 'ꦩꦱ꧀', catatan: 'Gelar sapaan Jawa (akhiran -s menjadi pasangan bila disambung).' },
+      { latin: 'Lurah', phonetic: 'lurah', unicode: 'ꦭꦸꦫꦃ', catatan: 'Pangkat/gelar pamong (suku + wignyan).' },
+      { latin: 'Dwija', phonetic: 'dwija', unicode: 'ꦢ꧀ꦮꦶꦗ', catatan: 'Gugus konsonan dw- memakai pasangan wa ber-wulu.' },
+      { latin: 'Prasetya', phonetic: 'prasetya', unicode: 'ꦥꦿꦱꦼꦠꦾ', catatan: 'Cakra (pra), [e] pepet (se), dan pengkal (tya).' },
+      { latin: 'Prasaja', phonetic: 'prasaja', unicode: 'ꦥꦿꦱꦗ', catatan: 'Cakra (pra) diikuti sa dan ja.' },
+
+      // Unsur [e] Pepet (ꦼ)
+      { latin: 'Setya', phonetic: 'setya', unicode: 'ꦱꦼꦠꦾ', catatan: 'Unsur [e] pepet (ꦱꦼ) + pengkal (ꦠꦾ).' },
+      { latin: 'Kerta', phonetic: 'kerta', unicode: 'ꦏꦼꦂꦠ', catatan: 'Unsur [e] pepet (ꦏꦼ) + layar (ꦂ).' },
+      { latin: 'Weni', phonetic: 'weni', unicode: 'ꦮꦼꦤꦶ', catatan: 'Unsur [e] pepet (ꦮꦼ) + wulu.' },
+      { latin: 'Wening', phonetic: 'wening', unicode: 'ꦮꦼꦤꦶꦁ', catatan: 'Unsur [e] pepet (ꦮꦼ) + wulu + cecak.' },
+      { latin: 'Sekar', phonetic: 'sekar', unicode: 'ꦱꦼꦏꦂ', catatan: 'Unsur [e] pepet (ꦱꦼ) + layar.' },
+
+      // Unsur [e] Taling (ꦺ)
+      { latin: 'Dewi', phonetic: 'déwi', unicode: 'ꦢꦺꦮꦶ', catatan: 'Unsur [e] taling (ꦢꦺ).' },
+      { latin: 'Ken', phonetic: 'kén', unicode: 'ꦏꦺꦤ꧀', catatan: 'Unsur [e] taling (ꦏꦺ).' },
+      { latin: 'Peni', phonetic: 'péni', unicode: 'ꦥꦺꦤꦶ', catatan: 'Unsur [e] taling (ꦥꦺ).' },
+      { latin: 'Raden', phonetic: 'radén', unicode: 'ꦫꦢꦺꦤ꧀', catatan: 'Unsur [e] taling (ꦢꦺ).' },
+      { latin: 'Kevin', phonetic: 'kévin', unicode: 'ꦏꦺꦥ꦳ꦶꦤ꧀', catatan: 'Unsur [e] taling (ꦏꦺ) + aksara rekan v (ꦥ꦳).' },
+      { latin: 'Endah', phonetic: 'éndah', unicode: 'ꦲꦺꦤ꧀ꦢꦃ', catatan: 'Konsisten memakai ha + taling (ꦲꦺ) untuk vokal awal [e] taling: ꦲꦺꦤ꧀ꦢꦃ.' },
+      { latin: 'Endang', phonetic: 'éndang', unicode: 'ꦲꦺꦤ꧀ꦢꦁ', catatan: 'Unsur [e] taling awal dengan ha + taling (ꦲꦺ).' },
+      { latin: 'Endar', phonetic: 'éndar', unicode: 'ꦲꦺꦤ꧀ꦢꦂ', catatan: 'Unsur [e] taling awal dengan ha + taling (ꦲꦺ).' },
+      { latin: 'Eni', phonetic: 'éni', unicode: 'ꦲꦺꦤꦶ', catatan: 'Unsur [e] taling awal dengan ha + taling (ꦲꦺ).' },
+      { latin: 'Edi', phonetic: 'édi', unicode: 'ꦲꦺꦢꦶ', catatan: 'Unsur [e] taling awal dengan ha + taling (ꦲꦺ).' },
+      { latin: 'Eko', phonetic: 'éko', unicode: 'ꦲꦺꦏꦺꦴ', catatan: 'Unsur [e] taling awal dengan ha + taling (ꦲꦺ).' },
+      { latin: 'Jeni', phonetic: 'jéni', unicode: 'ꦗꦺꦤꦶ', catatan: 'Unsur [e] taling (ꦗꦺ).' },
+      { latin: 'Yeni', phonetic: 'yéni', unicode: 'ꦪꦺꦤꦶ', catatan: 'Unsur [e] taling (ꦪꦺ).' },
+      { latin: 'Nareswari', phonetic: 'naréswari', unicode: 'ꦤꦫꦺꦱ꧀ꦮꦫꦶ', catatan: 'Unsur [e] taling (ꦫꦺ).' },
+      { latin: 'Maheswara', phonetic: 'mahéswara', unicode: 'ꦩꦲꦺꦱ꧀ꦮꦫ', catatan: 'Unsur [e] taling (ꦲꦺ).' },
+      { latin: 'Maheswari', phonetic: 'mahéswari', unicode: 'ꦩꦲꦺꦱ꧀ꦮꦫꦶ', catatan: 'Unsur [e] taling (ꦲꦺ).' },
+      { latin: 'Senapati', phonetic: 'sénapati', unicode: 'ꦱꦺꦤꦥꦠꦶ', catatan: 'Unsur [e] taling (ꦱꦺ).' },
+      { latin: 'Leli', phonetic: 'léli', unicode: 'ꦭꦺꦭꦶ', catatan: 'Unsur [e] taling (ꦭꦺ).' },
+      { latin: 'Meli', phonetic: 'méli', unicode: 'ꦩꦺꦭꦶ', catatan: 'Unsur [e] taling (ꦩꦺ).' },
+      { latin: 'Seli', phonetic: 'séli', unicode: 'ꦱꦺꦭꦶ', catatan: 'Unsur [e] taling (ꦱꦺ).' },
+      { latin: 'Sela', phonetic: 'séla', unicode: 'ꦱꦺꦭ', catatan: 'Unsur [e] taling (ꦱꦺ).' },
+      { latin: 'Narendra', phonetic: 'naréndra', unicode: 'ꦤꦫꦺꦤ꧀ꦢꦿ', catatan: 'Unsur [e] taling (ꦫꦺ) + pasangan da cakra.' },
+
+      // Unsur Pa Cerek (ꦉ)
+      { latin: 'Retna', phonetic: 'retna', unicode: 'ꦉꦠ꧀ꦤ', catatan: 'Unsur Pa Cerek (ꦉ) pengganti re pepet.' },
+      { latin: 'Respati', phonetic: 'respati', unicode: 'ꦉꦱ꧀ꦥꦠꦶ', catatan: 'Unsur Pa Cerek (ꦉ).' },
+      { latin: 'Resmi', phonetic: 'resmi', unicode: 'ꦉꦱ꧀ꦩꦶ', catatan: 'Unsur Pa Cerek (ꦉ).' },
+      { latin: 'Rejeki', phonetic: 'rejeki', unicode: 'ꦉꦗꦼꦏꦶ', catatan: 'Unsur Pa Cerek (ꦉ) + e pepet.' },
+      { latin: 'Remen', phonetic: 'remen', unicode: 'ꦉꦩꦼꦤ꧀', catatan: 'Unsur Pa Cerek (ꦉ) + e pepet.' },
+      { latin: 'Reksa', phonetic: 'reksa', unicode: 'ꦉꦏ꧀ꦱ', catatan: 'Unsur Pa Cerek (ꦉ).' },
+      { latin: 'Rebo', phonetic: 'rebo', unicode: 'ꦉꦧꦺꦴ', catatan: 'Unsur Pa Cerek (ꦉ).' },
+      { latin: 'Resi', phonetic: 'resi', unicode: 'ꦉꦱꦶ', catatan: 'Unsur Pa Cerek (ꦉ).' },
+      { latin: 'Redi', phonetic: 'redi', unicode: 'ꦉꦢꦶ', catatan: 'Unsur Pa Cerek (ꦉ).' },
+      { latin: 'Reja', phonetic: 'reja', unicode: 'ꦉꦗ', catatan: 'Unsur Pa Cerek (ꦉ).' },
+
+      // Unsur Nga Lelet (ꦊ)
+      { latin: 'Lestari', phonetic: 'lestari', unicode: 'ꦊꦱ꧀ꦠꦫꦶ', catatan: 'Unsur Nga Lelet (ꦊ) pengganti le pepet.' },
+      { latin: 'Lembu', phonetic: 'lembu', unicode: 'ꦊꦩ꧀ꦧꦸ', catatan: 'Unsur Nga Lelet (ꦊ).' },
+      { latin: 'Lembayung', phonetic: 'lembayung', unicode: 'ꦊꦩ꧀ꦧꦪꦸꦁ', catatan: 'Unsur Nga Lelet (ꦊ).' },
+
+      // Unsur Mahaprana / Murda (ꦯ, ꦨ, ꦓ)
+      { latin: 'Sri', phonetic: 'sri', unicode: 'ꦯꦿꦶ', catatan: 'Unsur Mahaprana Sa Murda (ꦯ) + cakra + wulu.' },
+      { latin: 'Bhawana', phonetic: 'bhawana', unicode: 'ꦨꦮꦤ', catatan: 'Unsur Mahaprana Ba Murda (ꦨ).' },
+      { latin: 'Bhakti', phonetic: 'bhakti', unicode: 'ꦨꦏ꧀ꦠꦶ', catatan: 'Unsur Mahaprana Ba Murda (ꦨ).' },
+      { latin: 'Ghana', phonetic: 'ghana', unicode: 'ꦓꦤ', catatan: 'Unsur Mahaprana Ga Murda (ꦓ).' },
+      { latin: 'Ghani', phonetic: 'ghani', unicode: 'ꦓꦤꦶ', catatan: 'Unsur Mahaprana Ga Murda (ꦓ).' },
+      { latin: 'Suryadi', phonetic: 'suryadi', unicode: 'ꦱꦸꦂꦪꦢꦶ', catatan: 'Layar (ꦂ) diikuti aksara ya (ꦪ) utuh bukan pengkal: ꦱꦸꦂꦪꦢꦶ.' },
+
+      // Serapan Arab & Aksara Rekan
+      { latin: 'Syafaat', phonetic: 'syafaat', unicode: 'ꦱꦾꦔꦠ꧀', catatan: 'Baku serapan Arab sesuai pedoman kamus: ꦱꦾꦔꦠ꧀.' },
+      { latin: "Syafa'at", phonetic: 'syafaat', unicode: 'ꦱꦾꦔꦠ꧀', catatan: 'Varian ejaan Syafaat: ꦱꦾꦔꦠ꧀.' },
+      { latin: 'Safaat', phonetic: 'safaat', unicode: 'ꦱꦾꦔꦠ꧀', catatan: 'Varian ejaan Syafaat: ꦱꦾꦔꦠ꧀.' },
+      { latin: 'Muhammad', phonetic: 'muhammad', unicode: 'ꦩꦸꦲ꦳ꦩ꧀ꦩꦢ꧀', catatan: 'Aksara rekan ha (ꦲ꦳) untuk serapan Arab Muhammad.' },
+      { latin: 'Muhamad', phonetic: 'muhamad', unicode: 'ꦩꦸꦲ꦳ꦩ꧀ꦩꦢ꧀', catatan: 'Varian ejaan Muhammad: ꦩꦸꦲ꦳ꦩ꧀ꦩꦢ꧀.' },
+      { latin: 'Mohammad', phonetic: 'mohammad', unicode: 'ꦩꦸꦲ꦳ꦩ꧀ꦩꦢ꧀', catatan: 'Varian ejaan Muhammad: ꦩꦸꦲ꦳ꦩ꧀ꦩꦢ꧀.' },
+      { latin: 'Nur', phonetic: 'nur', unicode: 'ꦤꦸꦂ', catatan: 'Suku + layar (ꦤꦸꦂ).' },
+      { latin: 'Noor', phonetic: 'nur', unicode: 'ꦤꦸꦂ', catatan: 'Varian ejaan Nur: ꦤꦸꦂ.' },
+      { latin: 'Noer', phonetic: 'nur', unicode: 'ꦤꦸꦂ', catatan: 'Varian ejaan Nur: ꦤꦸꦂ.' },
+      { latin: 'Rahman', phonetic: 'rahman', unicode: 'ꦫꦃꦩꦤ꧀', catatan: 'Wignyan tengah kata (ꦫꦃꦩꦤ꧀).' },
+      { latin: 'Rohman', phonetic: 'rohman', unicode: 'ꦫꦃꦩꦤ꧀', catatan: 'Varian ejaan Rahman: ꦫꦃꦩꦤ꧀.' },
+      { latin: 'Rachman', phonetic: 'rachman', unicode: 'ꦫꦃꦩꦤ꧀', catatan: 'Varian ejaan Rahman: ꦫꦃꦩꦤ꧀.' },
+      { latin: 'Rachaman', phonetic: 'rachaman', unicode: 'ꦫꦃꦩꦤ꧀', catatan: 'Varian ejaan Rahman: ꦫꦃꦩꦤ꧀.' },
+      { latin: 'Rochman', phonetic: 'rochman', unicode: 'ꦫꦃꦩꦤ꧀', catatan: 'Varian ejaan Rahman: ꦫꦃꦩꦤ꧀.' },
+      { latin: 'Rahmat', phonetic: 'rahmat', unicode: 'ꦫꦃꦩꦠ꧀', catatan: 'Wignyan tengah kata (ꦫꦃꦩꦠ꧀).' },
+      { latin: 'Rohmat', phonetic: 'rohmat', unicode: 'ꦫꦃꦩꦠ꧀', catatan: 'Varian ejaan Rahmat: ꦫꦃꦩꦠ꧀.' },
+      { latin: 'Rachmat', phonetic: 'rachmat', unicode: 'ꦫꦃꦩꦠ꧀', catatan: 'Varian ejaan Rahmat: ꦫꦃꦩꦠ꧀.' },
+      { latin: 'Rochmat', phonetic: 'rochmat', unicode: 'ꦫꦃꦩꦠ꧀', catatan: 'Varian ejaan Rahmat: ꦫꦃꦩꦠ꧀.' },
+      { latin: 'Anisa', phonetic: 'anisa', unicode: 'ꦄꦤꦶꦱ꧀', catatan: 'Aksara swara A (ꦄ) sesuai pedoman kamus: ꦄꦤꦶꦱ꧀.' },
+      { latin: 'Annisa', phonetic: 'annisa', unicode: 'ꦄꦤꦶꦱ꧀', catatan: 'Varian ejaan Anisa: ꦄꦤꦶꦱ꧀.' },
+      { latin: 'Anis', phonetic: 'anis', unicode: 'ꦄꦤꦶꦱ꧀', catatan: 'Varian ejaan Anis/Anisa: ꦄꦤꦶꦱ꧀.' },
+      { latin: 'Fikri', phonetic: 'fikri', unicode: 'ꦥ꦳ꦶꦏꦿꦶ', catatan: 'Aksara rekan fa (ꦥ꦳) + cakra wulu.' },
+      { latin: 'Fikry', phonetic: 'fikri', unicode: 'ꦥ꦳ꦶꦏꦿꦶ', catatan: 'Akhiran -y dibaca -i memakai sandhangan wulu (ꦥ꦳ꦶꦏꦿꦶ).' },
+      { latin: 'Fikrie', phonetic: 'fikri', unicode: 'ꦥ꦳ꦶꦏꦿꦶ', catatan: 'Akhiran -ie dibaca -i memakai sandhangan wulu (ꦥ꦳ꦶꦏꦿꦶ).' },
+      { latin: 'Fahrul', phonetic: 'fahrul', unicode: 'ꦥ꦳ꦃꦫꦸꦭ꧀', catatan: 'Aksara rekan fa (ꦥ꦳) + wignyan + suku.' },
+      { latin: 'Fachrul', phonetic: 'fachrul', unicode: 'ꦥ꦳ꦃꦫꦸꦭ꧀', catatan: 'Varian ejaan Fahrul: ꦥ꦳ꦃꦫꦸꦭ꧀.' },
+
+      // Diftong & Akhiran -y / -ie -> Wulu
+      { latin: 'Laili', phonetic: 'laili', unicode: 'ꦭꦻꦭꦶ', catatan: 'Diftong ai menggunakan Dirga Mure (ꦻ).' },
+      { latin: 'Laily', phonetic: 'laili', unicode: 'ꦭꦻꦭꦶ', catatan: 'Diftong ai (ꦻ) + akhiran -y dibaca -i menggunakan wulu (ꦭꦻꦭꦶ).' },
+      { latin: 'Laila', phonetic: 'laila', unicode: 'ꦭꦻꦭ', catatan: 'Diftong ai menggunakan Dirga Mure (ꦻ).' },
+      { latin: 'Lailla', phonetic: 'laila', unicode: 'ꦭꦻꦭ', catatan: 'Varian ejaan Laila: ꦭꦻꦭ.' },
+      { latin: 'Kayla', phonetic: 'kayla', unicode: 'ꦏꦻꦭ', catatan: 'Diftong ay/ai menggunakan Dirga Mure (ꦻ).' },
+      { latin: 'Kaila', phonetic: 'kaila', unicode: 'ꦏꦻꦭ', catatan: 'Diftong ai menggunakan Dirga Mure (ꦻ).' },
+      { latin: 'Maulana', phonetic: 'maulana', unicode: 'ꦩꦻꦴꦭꦤ', catatan: 'Diftong au menggunakan Dirga Mure + Tarung (ꦻꦴ).' }
+    ];
+
+    let customNamaList = [];
+    try {
+      const saved = localStorage.getItem('petungan_jawa_custom_nama_v1');
+      if (saved) customNamaList = JSON.parse(saved);
+    } catch (e) {}
+
+    function getFullNamaDatabase() {
+      return [...customNamaList, ...DEFAULT_NAMA_DATABASE];
+    }
+
+    function normalizeKey(str) {
+      return (str || '').trim().toLowerCase().replace(/[^a-zéè']/g, '');
+    }
+
+    function joinAksaraContinua(leftUnicode, rightUnicode) {
+      if (!leftUnicode) return rightUnicode;
+      if (!rightUnicode) return leftUnicode;
+      if (leftUnicode.endsWith('\uA9C0')) {
+        const firstChar = rightUnicode.charAt(0);
+        const code = firstChar.charCodeAt(0);
+        if (code >= 0xA98F && code <= 0xA9B2) {
+          return leftUnicode + rightUnicode;
+        }
+      }
+      return leftUnicode + rightUnicode;
+    }
+
+    function transliterateSingleWord(rawWord) {
+      let w = rawWord.trim().toLowerCase();
+      if (!w) return { unicode: '', syllables: [], neptu20: 0, neptu9: 0 };
+
+      w = w.replace(/ie$/g, 'i').replace(/([bcdfghjklmnpqrstvwxyz])y$/g, '$1i');
+
+      w = w.replace(/dh/g, 'Đ').replace(/th/g, 'Ŧ').replace(/ny/g, 'Ñ').replace(/ng/g, 'Ŋ');
+      w = w.replace(/kh/g, 'K̈').replace(/gh/g, 'G̈').replace(/dz/g, 'D̈').replace(/sy/g, 'S̈');
+      w = w.replace(/[fv]/g, 'P̈').replace(/z/g, 'J̈');
+
+      const isVowel = ch => 'aiueoéè'.includes(ch);
+      const tokens = [];
+      let i = 0;
+
+      while (i < w.length) {
+        let ch = w[i];
+        if (!/[a-zđŧñŋk̈g̈d̈s̈p̈j̈éè]/i.test(ch) && !['Đ','Ŧ','Ñ','Ŋ'].includes(ch)) {
+          i++;
+          continue;
+        }
+
+        if (isVowel(ch)) {
+          let vow = ch;
+          if (ch === 'a' && (w[i + 1] === 'i' || w[i + 1] === 'y')) { vow = 'ai'; i++; }
+          else if (ch === 'a' && w[i + 1] === 'u') { vow = 'au'; i++; }
+          i++;
+
+          let coda = '';
+          if (i < w.length && !isVowel(w[i])) {
+            const c1 = w[i];
+            const nextIsVow = (i + 1 < w.length) && isVowel(w[i + 1]);
+            const nextIsWy = (i + 1 < w.length) && (w[i + 1] === 'r' || w[i + 1] === 'y');
+            if (!nextIsVow && !nextIsWy) {
+              coda = c1;
+              i++;
+            }
+          }
+          tokens.push({ onset: '', wyanjana: '', vowel: vow, coda, raw: vow + coda });
+          continue;
+        }
+
+        let onset = ch;
+        i++;
+
+        let wyanjana = '';
+        if (i < w.length && (w[i] === 'r' || w[i] === 'y' || w[i] === 'w') && (i + 1 < w.length && isVowel(w[i + 1]))) {
+          if (w[i] === 'r' || (w[i] === 'y' && onset !== 'r')) {
+            wyanjana = w[i];
+            i++;
+          }
+        }
+
+        let vow = 'a';
+        if (i < w.length && isVowel(w[i])) {
+          vow = w[i];
+          if (vow === 'a' && (w[i + 1] === 'i' || w[i + 1] === 'y') && !(i + 2 < w.length && isVowel(w[i + 2]))) {
+            vow = 'ai';
+            i++;
+          } else if (vow === 'a' && w[i + 1] === 'u' && !(i + 2 < w.length && isVowel(w[i + 2]))) {
+            vow = 'au';
+            i++;
+          }
+          i++;
+        } else {
+          tokens.push({ onset, wyanjana: '', vowel: '', coda: '', raw: onset });
+          continue;
+        }
+
+        let coda = '';
+        if (i < w.length && !isVowel(w[i])) {
+          const c1 = w[i];
+          const nextIsVow = (i + 1 < w.length) && isVowel(w[i + 1]);
+          const nextIsWy = (i + 1 < w.length) && (w[i + 1] === 'r' || w[i + 1] === 'y') && (i + 2 < w.length && isVowel(w[i + 2]));
+          if (!nextIsVow && !nextIsWy) {
+            coda = c1;
+            i++;
+          }
+        }
+
+        tokens.push({ onset, wyanjana, vowel: vow, coda, raw: onset + wyanjana + vow + coda });
+      }
+
+      const onsetToCarakan = {
+        'h': 'ha', 'n': 'na', 'c': 'ca', 'r': 'ra', 'k': 'ka',
+        'd': 'da', 't': 'ta', 's': 'sa', 'w': 'wa', 'l': 'la',
+        'p': 'pa', 'Đ': 'dha', 'j': 'ja', 'y': 'ya', 'Ñ': 'nya',
+        'm': 'ma', 'g': 'ga', 'b': 'ba', 'Ŧ': 'tha', 'Ŋ': 'nga'
+      };
+
+      const rekanMap = {
+        'P̈': 'ꦥ꦳', 'J̈': 'ꦗ꦳', 'K̈': 'ꦏ꦳', 'G̈': 'ꦒ꦳', 'D̈': 'ꦢ꦳', 'S̈': 'ꦱꦾ'
+      };
+
+      const swaraMap = {
+        'a': 'ꦄ', 'i': 'ꦆ', 'u': 'ꦈ', 'é': 'ꦲꦺ', 'è': 'ꦲꦺ', 'e': 'ꦲꦼ', 'o': 'ꦎ', 'ai': 'ꦍ', 'au': 'ꦎꦴ'
+      };
+
+      const vowelSandhangan = {
+        'a': '',
+        'i': 'ꦶ',
+        'u': 'ꦸ',
+        'e': 'ꦼ',
+        'é': 'ꦺ',
+        'è': 'ꦺ',
+        'o': 'ꦺꦴ',
+        'ai': 'ꦻ',
+        'au': 'ꦻꦴ'
+      };
+
+      let unicodeOut = '';
+      let neptu20 = 0;
+      let neptu9 = 0;
+      const syllables = [];
+      let prevHadPangkon = false;
+
+      tokens.forEach((tk) => {
+        let piece = '';
+        let sylNeptu20 = 0;
+        let sylNeptu9 = 0;
+
+        if (!prevHadPangkon && tk.onset === 'r' && tk.wyanjana === '' && tk.vowel === 'e') {
+          piece = 'ꦉ';
+          sylNeptu20 += CARAKAN_MAP['ra'].num20;
+          sylNeptu9 += CARAKAN_MAP['ra'].num9;
+        } else if (!prevHadPangkon && tk.onset === 'l' && tk.wyanjana === '' && tk.vowel === 'e') {
+          piece = 'ꦊ';
+          sylNeptu20 += CARAKAN_MAP['la'].num20;
+          sylNeptu9 += CARAKAN_MAP['la'].num9;
+        } else if (tk.onset === '') {
+          piece = swaraMap[tk.vowel] || 'ꦄ';
+          sylNeptu20 += CARAKAN_MAP['ha'].num20;
+          sylNeptu9 += CARAKAN_MAP['ha'].num9;
+          prevHadPangkon = false;
+        } else {
+          let baseAksara = '';
+          if (rekanMap[tk.onset]) {
+            baseAksara = rekanMap[tk.onset];
+            const baseKey = tk.onset === 'P̈' ? 'pa' : tk.onset === 'J̈' ? 'ja' : tk.onset === 'K̈' ? 'ka' : tk.onset === 'G̈' ? 'ga' : tk.onset === 'D̈' ? 'da' : 'sa';
+            sylNeptu20 += CARAKAN_MAP[baseKey].num20;
+            sylNeptu9 += CARAKAN_MAP[baseKey].num9;
+          } else {
+            const cKey = onsetToCarakan[tk.onset] || 'ha';
+            baseAksara = CARAKAN_MAP[cKey].aksara;
+            sylNeptu20 += CARAKAN_MAP[cKey].num20;
+            sylNeptu9 += CARAKAN_MAP[cKey].num9;
+          }
+
+          piece = baseAksara;
+
+          if (tk.wyanjana === 'r') {
+            if (tk.vowel === 'e') {
+              piece += 'ꦽ';
+            } else {
+              piece += 'ꦿ';
+              piece += (vowelSandhangan[tk.vowel] || '');
+            }
+          } else if (tk.wyanjana === 'y') {
+            piece += 'ꦾ' + (vowelSandhangan[tk.vowel] || '');
+          } else if (tk.vowel === '') {
+            piece += '꧀';
+            prevHadPangkon = true;
+          } else {
+            piece += (vowelSandhangan[tk.vowel] || '');
+            prevHadPangkon = false;
+          }
+        }
+
+        if (tk.coda) {
+          if (tk.coda === 'h') {
+            piece += 'ꦃ';
+            prevHadPangkon = false;
+          } else if (tk.coda === 'r') {
+            piece += 'ꦂ';
+            prevHadPangkon = false;
+          } else if (tk.coda === 'Ŋ') {
+            piece += 'ꦁ';
+            prevHadPangkon = false;
+          } else {
+            const codaKey = onsetToCarakan[tk.coda] || 'na';
+            piece += CARAKAN_MAP[codaKey].aksara + '꧀';
+            sylNeptu20 += CARAKAN_MAP[codaKey].num20;
+            sylNeptu9 += CARAKAN_MAP[codaKey].num9;
+            prevHadPangkon = true;
+          }
+        } else if (tk.vowel !== '') {
+          prevHadPangkon = false;
+        }
+
+        unicodeOut += piece;
+        neptu20 += sylNeptu20;
+        neptu9 += sylNeptu9;
+        syllables.push({
+          latin: tk.raw.replace(/Đ/g, 'dh').replace(/Ŧ/g, 'th').replace(/Ñ/g, 'ny').replace(/Ŋ/g, 'ng').replace(/P̈/g, 'f').replace(/J̈/g, 'z').replace(/K̈/g, 'kh').replace(/G̈/g, 'gh').replace(/D̈/g, 'dz').replace(/S̈/g, 'sy'),
+          aksara: piece,
+          neptu20: sylNeptu20,
+          neptu9: sylNeptu9
+        });
+      });
+
+      return { unicode: unicodeOut, syllables, neptu20, neptu9 };
+    }
+
+    function parseNameToAksara(fullName, styleMode = 'continua') {
+      const clean = (fullName || '').trim();
+      if (!clean) {
+        return { unicode: '—', syllables: [], neptu20: 0, neptu9: 0, matchedNotes: [] };
+      }
+
+      const db = getFullNamaDatabase();
+      const fullKey = normalizeKey(clean);
+      const exactMatch = db.find(item => normalizeKey(item.latin) === fullKey);
+
+      const matchedNotes = [];
+      let combinedUnicode = '';
+      let total20 = 0;
+      let total9 = 0;
+      const allSyllables = [];
+
+      if (exactMatch && exactMatch.unicode) {
+        matchedNotes.push(exactMatch.catatan);
+        const calcBase = transliterateSingleWord(exactMatch.phonetic || exactMatch.latin);
+        combinedUnicode = exactMatch.unicode;
+        total20 = calcBase.neptu20 || 12;
+        total9 = calcBase.neptu9 || 6;
+        allSyllables.push({ latin: exactMatch.latin, aksara: exactMatch.unicode, neptu20: total20, neptu9: total9 });
+      } else {
+        const words = clean.split(/\s+/).filter(Boolean);
+        words.forEach((word, idx) => {
+          const wKey = normalizeKey(word);
+          const wordMatch = db.find(item => normalizeKey(item.latin) === wKey);
+          let resWord;
+          if (wordMatch) {
+            if (wordMatch.catatan) matchedNotes.push(`${wordMatch.latin}: ${wordMatch.catatan}`);
+            const baseCalc = transliterateSingleWord(wordMatch.phonetic || wordMatch.latin);
+            resWord = {
+              unicode: wordMatch.unicode || baseCalc.unicode,
+              syllables: wordMatch.unicode
+                ? [{ latin: word, aksara: wordMatch.unicode, neptu20: baseCalc.neptu20, neptu9: baseCalc.neptu9 }]
+                : baseCalc.syllables,
+              neptu20: baseCalc.neptu20,
+              neptu9: baseCalc.neptu9
+            };
+          } else {
+            resWord = transliterateSingleWord(word);
+          }
+
+          if (idx === 0) {
+            combinedUnicode = resWord.unicode;
+          } else if (styleMode === 'spaced') {
+            combinedUnicode += ' ' + resWord.unicode;
+          } else {
+            combinedUnicode = joinAksaraContinua(combinedUnicode, resWord.unicode);
+          }
+
+          total20 += resWord.neptu20;
+          total9 += resWord.neptu9;
+          allSyllables.push(...resWord.syllables);
+        });
+      }
+
+      if (styleMode === 'continua_pada') {
+        combinedUnicode = `꧋${combinedUnicode}꧉`;
+      }
+
+      return {
+        unicode: combinedUnicode,
+        syllables: allSyllables,
+        neptu20: total20,
+        neptu9: total9,
+        matchedNotes
+      };
+    }
+
+    /* ========================================================================
+       4. DATA PERJODOHAN (SISA 9, SISA 4) & KATURANGGAN (ANDHENG-ANDHENG & WANITA)
+       ======================================================================== */
+    const JODOH_SISA_9 = {
+      1: { name: 'Pegat', status: 'Perlu Waspada & Laku Ruwatan', desc: 'Sering menghadapi ujian kesalahpahaman, masalah ekonomi, atau perbedaan prinsip yang tajam apabila tidak dikelola dengan kesabaran tinggi.', solusi: 'Disarankan memilih hari akad nikah yang jatuh pada hitungan Sri atau Lungguh, mengadakan selametan tolak balak / bancakan weton, serta menyepakati pembagian peran rumah tangga secara tertulis/terbuka sejak awal.' },
+      2: { name: 'Ratu', status: 'Sangat Baik & Berwibawa', desc: 'Pasangan yang serasi, dihormati tetangga dan keluarga besar, serta memiliki wibawa dan keharmonisan yang kuat.', solusi: 'Pertahankan kerendahan hati dan rajin berbagi kepada sesama agar kemuliaan keluarga langgeng.' },
+      3: { name: 'Jodoh', status: 'Sangat Cocok & Harmonis', desc: 'Saling melengkapi kelebihan dan kekurangan masing-masing, rukun hingga usia senja, serta mudah mencapai kesepakatan.', solusi: 'Jaga komunikasi hangat dan saling mendukung cita-cita pasangan.' },
+      4: { name: 'Topo', status: 'Ujian Awal, Bahagia di Akhir', desc: 'Pada tahun-tahun awal pernikahan sering mengalami masa prihatin atau penyesuaian ekonomi, namun setelah melewati ujian akan hidup mapan dan tenteram.', solusi: 'Perkuat kesabaran di awal pernikahan, hidup sederhana, dan rutin bersedekah.' },
+      5: { name: 'Tinari', status: 'Murah Rezeki & Bahagia', desc: 'Mudah menemukan jalan keluar saat kesulitan, selalu diberi kecukupan rezeki, dan diselimuti kebahagiaan keluarga.', solusi: 'Syukuri setiap rezeki dengan menyisihkan sedekah keluarga.' },
+      6: { name: 'Padu', status: 'Perlu Pengendalian Emosi', desc: 'Sering terjadi perdebatan kecil dalam rumah tangga namun tidak sampai berpisah karena rasa sayang tetap kuat.', solusi: 'Saat salah satu emosi, pasangan lainnya hendaknya mengalah sejenak. Pilih hari akad berunsur Banyu / Sri dan adakan slametan weton.' },
+      7: { name: 'Sujanan', status: 'Ujian Kecemburuan & Kepercayaan', desc: 'Rentan muncul rasa curiga atau godaan pihak luar apabila komunikasi kurang terbuka.', solusi: 'Bangun keterbukaan penuh dalam keluarga, hindari prasangka, dan lakukan laku ruwatan / selametan apem & tumpeng robyong menjelang akad.' },
+      0: { name: 'Pesthi', status: 'Sangat Rukun & Tenteram', desc: 'Rumah tangga berjalan damai, rukun, tenteram, dan masalah apa pun dapat diselesaikan dengan kepala dingin.', solusi: 'Terus rawat keharmonisan dan saling mendoakan.' }
+    };
+
+    const JODOH_SISA_4 = {
+      1: { name: 'Gonto', desc: 'Perlu ikhtiar ekstra dalam hal keturunan maupun penataan ekonomi awal.' },
+      2: { name: 'Gembili', desc: 'Dikaruniai banyak keturunan dan rezeki yang terus bertambah.' },
+      3: { name: 'Sri', desc: 'Murah sandang pangan, rezeki melimpah, dan sejahtera.' },
+      0: { name: 'Punggel', desc: 'Perlu laku prihatin dan kewaspadaan menjaga kesehatan serta keutuhan keluarga.' }
+    };
+
+    const ANDHENG_DATA = [
+      { id: 1, name: 'Manik', loc: 'Ubun-ubun / Puncak Kepala', x: 120, y: 20, nature: 'baik', desc: 'Berbudi luhur, cerdas, berwibawa tinggi, dan berpotensi menjadi pemimpin yang dihormati.' },
+      { id: 2, name: 'Wreksa / Gunungsari', loc: 'Dahi Tengah', x: 120, y: 31, nature: 'baik', desc: 'Tajam pikirannya, teguh pendirian, jujur, dan pekerja keras.' },
+      { id: 3, name: 'Sritumpuk', loc: 'Dahi Kanan', x: 132, y: 32, nature: 'baik', desc: 'Murah rezeki, pandai mengumpulkan harta benda, dan sukses dalam perdagangan.' },
+      { id: 4, name: 'Werdatama', loc: 'Dahi Kiri', x: 108, y: 32, nature: 'baik', desc: 'Bijaksana, sabar, dan sering menjadi tempat bertanya orang banyak.' },
+      { id: 5, name: 'Tunggul', loc: 'Pangkal Hidung (Antara Alis)', x: 120, y: 41, nature: 'baik', desc: 'Cermat, berwawasan luas, tekun dalam mengejar cita-cita.' },
+      { id: 6, name: 'Pulungati', loc: 'Pelipis Kanan / Kiri', x: 145, y: 42, nature: 'baik', desc: 'Cerdik, kreatif, pandai membaca peluang, dan mudah bergaul.' },
+      { id: 7, name: 'Tamu / Rezeki', loc: 'Pipi Kanan', x: 135, y: 53, nature: 'baik', desc: 'Dermawan, banyak sahabat, dan sering kedatangan tamu yang membawa kabar baik.' },
+      { id: 8, name: 'Sihing Jalma', loc: 'Pipi Kiri', x: 105, y: 53, nature: 'baik', desc: 'Disayangi banyak orang, ramah, dan ringan tangan membantu sesama.' },
+      { id: 9, name: 'Turunsih', loc: 'Ujung Hidung', x: 120, y: 51, nature: 'baik', desc: 'Rezekinya lancar, tutur katanya menyenangkan, dan mudah meraih simpati.' },
+      { id: 10, name: 'Nyamuk / Nyanyian', loc: 'Bibir Atas', x: 120, y: 58, nature: 'baik', desc: 'Pandai berbicara, memesona, dan cocok berkarier di bidang komunikasi atau seni.' },
+      { id: 11, name: 'Lumer', loc: 'Bibir Bawah', x: 120, y: 65, nature: 'baik', desc: 'Pemaaf, sabar, suka memberi, dan tidak tega melihat orang lain kesusahan.' },
+      { id: 12, name: 'Janggut Emas', loc: 'Dagu Tengah', x: 120, y: 73, nature: 'baik', desc: 'Berwibawa di usia dewasa, makmur, dan dihormati anak cucu.' },
+      { id: 13, name: 'Sangkak', loc: 'Leher Bagian Depan', x: 120, y: 86, nature: 'waspada', desc: 'Perlu kesabaran ekstra menghadapi ujian batin; bila tekun tirakat akan berbalik menjadi kemuliaan.' },
+      { id: 14, name: 'Gunung Sepikul', loc: 'Bahu Kanan / Kiri', x: 158, y: 112, nature: 'baik', desc: 'Kuat memikul tanggung jawab besar, menjadi tulang punggung dan pelindung keluarga.' },
+      { id: 15, name: 'Brama / Ksatriya', loc: 'Dada Kanan', x: 134, y: 140, nature: 'baik', desc: 'Pemberani, tegas membela kebenaran, dan penuh semangat juang.' },
+      { id: 16, name: 'Welas Asih', loc: 'Dada Kiri', x: 106, y: 140, nature: 'baik', desc: 'Berhati lembut, setia pada pasangan, dan memiliki empati tinggi.' },
+      { id: 17, name: 'Pusat Bumi', loc: 'Pusar / Perut Tengah', x: 120, y: 192, nature: 'baik', desc: 'Beruntung dalam sandang pangan, hidup berkecukupan, dan dipercaya orang.' },
+      { id: 18, name: 'Gegaman', loc: 'Lengan Atas', x: 75, y: 148, nature: 'baik', desc: 'Terampil bekerja dengan tangan, cekatan, dan mandiri.' },
+      { id: 19, name: 'Rezeki Genggam', loc: 'Telapak / Pergelangan Tangan', x: 56, y: 214, nature: 'baik', desc: 'Pandai mengelola keuangan dan usaha mandiri.' },
+      { id: 20, name: 'Bumi Pinayungan', loc: 'Pinggang / Panggul', x: 144, y: 226, nature: 'baik', desc: 'Menjadi tempat berlindung keluarga dan membawa keteduhan rumah tangga.' },
+      { id: 21, name: 'Jangkah Luhur', loc: 'Paha Kanan / Kiri', x: 136, y: 278, nature: 'baik', desc: 'Suka bepergian jauh / merantau yang membawa kesuksesan.' },
+      { id: 22, name: 'Kukuh', loc: 'Lutut Kanan / Kiri', x: 141, y: 324, nature: 'baik', desc: 'Tahan uji, ulet, dan tidak mudah menyerah menghadapi rintangan.' },
+      { id: 23, name: 'Laku Utama', loc: 'Betis Kanan / Kiri', x: 144, y: 358, nature: 'baik', desc: 'Gesit, rajin bekerja, dan gemar menolong orang yang membutuhkan.' },
+      { id: 24, name: 'Tapak Rezeki', loc: 'Punggung / Telapak Kaki', x: 146, y: 392, nature: 'baik', desc: 'Langkah kakinya sering membawa keberuntungan dan rezeki di tempat baru.' },
+      { id: 25, name: 'Tutup Wuri', loc: 'Tengkuk / Belakang Leher', x: 96, y: 88, nature: 'waspada', desc: 'Pendiam dan menyimpan banyak rahasia; perlu belajar terbuka agar tidak menanggung beban sendirian.' },
+      { id: 26, name: 'Sangga Buwana', loc: 'Punggung Tengah', x: 96, y: 162, nature: 'baik', desc: 'Sabar, ikhlas berkorban untuk keluarga, dan mendapat pahala kebaikan di hari tua.' }
+    ];
+
+    const KATURANGGAN_WANITA_DATA = [
+      { name: 'Padma Negara', cat: 'wajah', sifat: 'Utama (Ratu Rumah Tangga)', desc: 'Wajah bulat telur berseri seperti bunga teratai mekar, mata jernih tenang. Membawa keteduhan, wibawa, dan kemakmuran bagi suami serta keluarga.' },
+      { name: 'Sri Tumurun', cat: 'wajah', sifat: 'Utama (Pembawa Rezeki)', desc: 'Sorot mata teduh, senyum tulus sedikit memerah alami di pipi. Rezekinya selalu mengalir bagai Dewi Sri yang turun memberkahi rumah tangga.' },
+      { name: 'Retna Kencana', cat: 'wajah', sifat: 'Utama (Cerdas & Bijak)', desc: 'Dahi bersih proporsional, alis melengkung rapi bagai bulan sabit. Cerdas, teliti mengatur keuangan keluarga, dan bijak mendidik anak.' },
+      { name: 'Surya Kembar', cat: 'wajah', sifat: 'Utama (Berwibawa)', desc: 'Sepasang mata bening bercahaya seimbang, pandangan mantap namun santun. Berjiwa pemimpin dan menjaga kehormatan keluarga.' },
+      { name: 'Wulan Andadari', cat: 'wajah', sifat: 'Utama (Penyejuk Hati)', desc: 'Raut wajah lembut bercahaya teduh seperti purnama. Mampu meredam amarah suami dan menciptakan suasana rumah yang damai.' },
+      { name: 'Lintang Panjer Sore', cat: 'wajah', sifat: 'Utama (Setia & Sabar)', desc: 'Pandangan mata dalam dan tenang, tidak mudah panik. Sangat setia mendampingi pasangan dalam suka maupun duka.' },
+      { name: 'Durga Ngerik', cat: 'wajah', sifat: 'Perlu Laku Sabar', desc: 'Sorot mata tajam berapi-api dan raut wajah mudah tegang. Berwatak berani dan tegas, namun perlu melatih kesabaran serta kelembutan tutur kata.' },
+      { name: 'Sekar Kedhaton', cat: 'postur', sifat: 'Utama (Anggun & Luhur)', desc: 'Postur tubuh proporsional (dedeg sedheng lencir), bahu rapi, dan pembawaan anggun. Memiliki tata krama tinggi dan membawa nama baik keluarga.' },
+      { name: 'Bumi Pinayungan', cat: 'postur', sifat: 'Utama (Pengayom)', desc: 'Perawakan berisi seimbang, kokoh, dan bersahaja. Menjadi tempat bernaung yang aman dan nyaman bagi seluruh anggota keluarga.' },
+      { name: 'Pring Sedhapur', cat: 'postur', sifat: 'Utama (Keturunan Rukun)', desc: 'Tubuh ramping lentur dengan gerak luwes. Melambangkan kerukunan keluarga besar yang saling menopang seperti rumpun bambu.' },
+      { name: 'Gedhong Kencana', cat: 'postur', sifat: 'Utama (Pandai Menyimpan Harta)', desc: 'Postur tegap dengan langkah mantap. Pandai mengelola harta benda sehingga keluarga tidak kekurangan.' },
+      { name: 'Candra Kirana', cat: 'postur', sifat: 'Utama (Lembut & Pengasih)', desc: 'Perawakan halus, kulit bersih berseri, berhati penyayang dan berjiwa seni.' },
+      { name: 'Mendhung Kesaput Angin', cat: 'postur', sifat: 'Perlu Laku Waspada', desc: 'Postur sering tampak lesu atau bahu condong ke depan karena banyak memendam pikiran. Disarankan menjaga ketenangan batin dan kesehatan.' },
+      { name: 'Lampah Macan Luwe', cat: 'gerak', sifat: 'Utama (Berwibawa & Anggun)', desc: 'Cara berjalan tenang, mantap, tidak tergesa-gesa, dan tubuh tegak seimbang. Disegani orang dan berjiwa mandiri.' },
+      { name: 'Swara Gandarwa / Sabda Manis', cat: 'gerak', sifat: 'Utama (Tutur Kata Berkah)', desc: 'Suara jernih, lembut, tertata, dan tidak meninggi saat berbicara. Ucapannya membawa kesejukan dan rezeki.' },
+      { name: 'Lampah Jangkah Panjang', cat: 'gerak', sifat: 'Dinamis & Pekerja Keras', desc: 'Langkah kaki cepat dan tegas. Cekatan dalam bekerja, mandiri, namun perlu melatih ketenangan saat mengambil keputusan.' }
+    ];
+
+    /* ========================================================================
+       5. FUNGSI RENDER & KALKULASI TIAP TAB
+       ======================================================================== */
+    function calcWeton() {
+      const dateVal = document.getElementById('weton-date').value;
+      const timeVal = document.getElementById('weton-time').value || '08:00';
+      const ruleVal = document.getElementById('weton-rule').value;
+      const personName = document.getElementById('weton-person-name').value.trim();
+
+      if (!dateVal) return;
+
+      const eff = getEffectiveDayNumber(dateVal, timeVal, ruleVal);
+      const jCal = calculateJavaneseDateFromDayNum(eff.dayNum);
+      const wanci = WANCI_12.find(w => eff.hh >= w.start && eff.hh < w.end) || WANCI_12[0];
+
+      document.getElementById('res-weton-person-badge').textContent = personName
+        ? `HASIL PÉTUNGAN WETON: ${personName.toUpperCase()}`
+        : 'HASIL PÉTUNGAN WETON KELAHIRAN';
+
+      document.getElementById('res-weton-main').textContent = jCal.wetonStr;
+      document.getElementById('res-weton-masehi').textContent = `${jCal.masehiStr} • Pukul ${timeVal} WIB (${wanci.name})`;
+      document.getElementById('res-weton-jawa-date').textContent = `${jCal.jDay} ${jCal.jMonth} ${jCal.jYear} Ja • Tahun ${jCal.tahunJawa} (Windu ${jCal.windu})`;
+
+      document.getElementById('res-neptu-total').textContent = jCal.neptu;
+      document.getElementById('res-neptu-breakdown').textContent = `${jCal.saptawara.name} (${jCal.saptawara.neptu}) + ${jCal.pancawara.name} (${jCal.pancawara.neptu})`;
+
+      const noticeEl = document.getElementById('res-wiwit-notice');
+      if (eff.shifted) {
+        noticeEl.style.display = 'block';
+        noticeEl.innerHTML = `<strong>Catatan Pergantian Hari:</strong> ${eff.shiftReason}`;
+      } else {
+        noticeEl.style.display = 'none';
+      }
+
+      document.getElementById('res-saptawara').textContent = jCal.saptawara.name;
+      document.getElementById('res-saptawara-sub').textContent = `${jCal.saptawara.kawi} • Neptu ${jCal.saptawara.neptu}`;
+
+      document.getElementById('res-pancawara').textContent = jCal.pancawara.name;
+      document.getElementById('res-pancawara-sub').textContent = `${jCal.pancawara.kawi} • Neptu ${jCal.pancawara.neptu}`;
+
+      document.getElementById('res-wuku').textContent = jCal.wuku;
+      document.getElementById('res-wuku-sub').textContent = `Wuku ke-${jCal.wukuIdx + 1} • ${jCal.pancawara.arah}`;
+
+      document.getElementById('res-paringkelan').textContent = jCal.paringkelan;
+      document.getElementById('res-wanci-sub').textContent = `${wanci.name} (${timeVal} WIB)`;
+
+      const rem7 = jCal.neptu % 7;
+      const rem5 = jCal.neptu % 5;
+      const ps7 = PANCASUDA_7.find(p => p.rem === rem7);
+      const ps5 = PANCASUDA_5.find(p => p.rem === rem5);
+
+      document.getElementById('res-pancasuda-container').innerHTML = `
+        <div class="stat-box" style="text-align:left;">
+          <div class="stat-label sans">Pancasuda Saptawara (Neptu ${jCal.neptu} ÷ 7, Sisa ${rem7 === 0 ? 7 : rem7})</div>
+          <div class="stat-value" style="color:var(--keraton-green);">${ps7.name}</div>
+          <div class="stat-sub sans" style="color:var(--ink-main); line-height:1.5;">${ps7.desc}</div>
+        </div>
+        <div class="stat-box" style="text-align:left;">
+          <div class="stat-label sans">Pancasuda Pancawara (Neptu ${jCal.neptu} ÷ 5, Sisa ${rem5 === 0 ? 5 : rem5})</div>
+          <div class="stat-value" style="color:var(--soga-red);">${ps5.name}</div>
+          <div class="stat-sub sans" style="color:var(--ink-main); line-height:1.5;">${ps5.desc}</div>
+        </div>
+      `;
+
+      document.getElementById('res-wanci-detail').innerHTML = `
+        <strong>Wanci Kelahiran — ${wanci.name} (${timeVal} WIB):</strong> ${wanci.watak}
+      `;
+
+      const wetonSel = document.getElementById('browse-weton-select');
+      if (wetonSel) wetonSel.value = jCal.wetonStr;
+      renderWatakWetonCard(jCal.wetonStr);
+
+      const wukuSel = document.getElementById('browse-wuku-select');
+      if (wukuSel) wukuSel.value = jCal.wuku;
+      renderWatakWukuCard(jCal.wuku);
+    }
+
+    function renderWatakWetonCard(wetonStr) {
+      const info = LINTANG_35[wetonStr];
+      if (!info) return;
+      document.getElementById('res-watak-weton-detail').innerHTML = `
+        <div class="grid-3 sans" style="margin-bottom:12px;">
+          <div class="stat-box"><div class="stat-label">Lintang Kelahiran</div><div class="stat-value" style="font-size:1.05rem;">${info.lintang}</div></div>
+          <div class="stat-box"><div class="stat-label">Parasan</div><div class="stat-value" style="font-size:1.05rem;">${info.parasan}</div></div>
+          <div class="stat-box"><div class="stat-label">Lakuning / Rakem</div><div class="stat-value" style="font-size:1.05rem;">${info.lakuning}</div></div>
+        </div>
+        <div class="sans" style="font-size:13.5px; line-height:1.6;">
+          <p style="margin:0 0 8px;"><strong>Watak Dasar &amp; Batin (${wetonStr}):</strong> ${info.watak}</p>
+          <p style="margin:0 0 8px;"><strong>Rezeki &amp; Bidang Pekerjaan:</strong> ${info.rezeki}</p>
+          <div class="soga-box"><strong>Saran Laku &amp; Waspada:</strong> ${info.saran}</div>
+        </div>
+      `;
+    }
+
+    function renderWatakWukuCard(wukuName) {
+      const wInfo = WATAK_30_WUKU_DETAIL[wukuName];
+      if (!wInfo) return;
+      document.getElementById('res-watak-wuku-detail').innerHTML = `
+        <div class="grid-4 sans" style="margin-bottom:12px;">
+          <div class="stat-box"><div class="stat-label">Dewata Pelindung</div><div class="stat-value" style="font-size:1rem;">${wInfo.dewa}</div></div>
+          <div class="stat-box"><div class="stat-label">Kayu Simbolis</div><div class="stat-value" style="font-size:1rem;">${wInfo.kayu}</div></div>
+          <div class="stat-box"><div class="stat-label">Manuk Simbolis</div><div class="stat-value" style="font-size:1rem;">${wInfo.manuk}</div></div>
+          <div class="stat-box"><div class="stat-label">Letak Gedhong</div><div class="stat-value" style="font-size:1rem;">${wInfo.gedhong}</div></div>
+        </div>
+        <div class="sans" style="font-size:13.5px; line-height:1.6;">
+          <p style="margin:0 0 6px;"><strong>Candraning Wuku ${wukuName}:</strong> <em>"${wInfo.candra}"</em></p>
+          <p style="margin:0 0 8px;"><strong>Watak Utama Wuku:</strong> ${wInfo.watak}</p>
+          <div class="notice-box"><strong>Pantangan &amp; Laku Waspada Wuku:</strong> ${wInfo.pantangan}</div>
+        </div>
+      `;
+    }
+
+    function previewCatalogWeton() {
+      renderWatakWetonCard(document.getElementById('browse-weton-select').value);
+    }
+
+    function previewCatalogWuku() {
+      renderWatakWukuCard(document.getElementById('browse-wuku-select').value);
+    }
+
+    function syncNameFromWeton() {
+      const val = document.getElementById('weton-person-name').value;
+      document.getElementById('nama-input').value = val;
+      calcWeton();
+      calcNamaAksara();
+    }
+
+    /* ========================================================================
+       TAB 2: PÉTUNG NAMA & AKSARA JAWA
+       ======================================================================== */
+    function renderCarakanReference() {
+      const grid = document.getElementById('carakan-ref-grid');
+      if (!grid) return;
+      grid.innerHTML = CARAKAN_20.map(c => `
+        <div class="carakan-cell">
+          <div style="font-size:1.5rem; color:var(--soga-red); font-weight:700;">${c.aksara}</div>
+          <div style="font-weight:700; font-size:12px;">${c.latin.toUpperCase()}</div>
+          <div style="font-size:11px; color:var(--ink-muted);">Neptu ${c.num20} (${c.num9})</div>
+        </div>
+      `).join('');
+
+      const sel = document.getElementById('sample-nama-select');
+      if (sel) {
+        const current = sel.value;
+        const fullDb = getFullNamaDatabase();
+        sel.innerHTML = `<option value="">-- Pilih contoh nama dari kamus baku (${fullDb.length} entri) --</option>` +
+          fullDb.map((item, idx) => `<option value="${idx}">${item.latin} — ${item.unicode || ''}</option>`).join('');
+        sel.value = current;
+      }
+    }
+
+    function applySampleNama() {
+      const idx = document.getElementById('sample-nama-select').value;
+      if (idx === '') return;
+      const item = getFullNamaDatabase()[Number(idx)];
+      if (item) {
+        document.getElementById('nama-input').value = item.latin;
+        calcNamaAksara();
+      }
+    }
+
+    function saveCustomNama() {
+      const latin = document.getElementById('custom-nama-latin').value.trim();
+      const phonetic = document.getElementById('custom-nama-phonetic').value.trim() || latin;
+      const unicode = document.getElementById('custom-nama-unicode').value.trim();
+      if (!latin) {
+        showToast('Isi nama Latin terlebih dahulu.');
+        return;
+      }
+      customNamaList.unshift({
+        latin,
+        phonetic,
+        unicode,
+        catatan: 'Entri kamus kustom pengguna.'
+      });
+      try {
+        localStorage.setItem('petungan_jawa_custom_nama_v1', JSON.stringify(customNamaList));
+      } catch (e) {}
+      renderCarakanReference();
+      document.getElementById('nama-input').value = latin;
+      calcNamaAksara();
+      showToast(`Nama "${latin}" tersimpan ke kamus lokal.`);
+    }
+
+    function calcNamaAksara() {
+      const nama = document.getElementById('nama-input').value;
+      const paugeran = document.getElementById('nama-paugeran').value;
+      const styleMode = document.getElementById('nama-style').value;
+
+      const parsed = parseNameToAksara(nama, styleMode);
+      const neptuNama = paugeran === 'carakan20' ? parsed.neptu20 : parsed.neptu9;
+
+      document.getElementById('res-aksara-unicode').textContent = parsed.unicode;
+      document.getElementById('res-nama-total-badge').textContent = `Total Neptu Nama: ${neptuNama}`;
+
+      const noteEl = document.getElementById('nama-kamus-note');
+      if (parsed.matchedNotes.length > 0) {
+        noteEl.innerHTML = `<strong>Kaidah Kamus Baku:</strong> ${parsed.matchedNotes.join(' | ')}`;
+      } else {
+        noteEl.innerHTML = 'Menggunakan kaidah otomatis KAJ I 2021 (<em>Scriptio Continua</em>, pasangan tengah kata, layar, wignyan, cecak, dan akhiran -y/-ie ke wulu).';
+      }
+
+      document.getElementById('res-aksara-syllables').innerHTML = parsed.syllables.map(s => `
+        <div class="syllable-chip">
+          <div style="font-size:1.25rem; color:var(--keraton-green); font-weight:700;">${s.aksara}</div>
+          <div style="font-size:11.5px; font-weight:700;">${s.latin}</div>
+          <div style="font-size:10.5px; color:var(--ink-muted);">Neptu ${paugeran === 'carakan20' ? s.neptu20 : s.neptu9}</div>
+        </div>
+      `).join('');
+
+      const wetonDate = document.getElementById('weton-date').value;
+      const wetonTime = document.getElementById('weton-time').value;
+      const wetonRule = document.getElementById('weton-rule').value;
+      const effWeton = getEffectiveDayNumber(wetonDate, wetonTime, wetonRule);
+      const jWeton = calculateJavaneseDateFromDayNum(effWeton.dayNum);
+      const gabunganAgung = neptuNama + jWeton.neptu;
+
+      const sisa5Nama = neptuNama % 5;
+      const ps5Nama = PANCASUDA_5.find(p => p.rem === sisa5Nama);
+      const sisa7Gab = gabunganAgung % 7;
+      const ps7Gab = PANCASUDA_7.find(p => p.rem === sisa7Gab);
+
+      document.getElementById('res-nama-petung-cards').innerHTML = `
+        <div class="stat-box" style="text-align:left;">
+          <div class="stat-label sans">Pétung Nama Sisa 5 (${neptuNama} ÷ 5)</div>
+          <div class="stat-value">${ps5Nama.name}</div>
+          <div class="stat-sub sans">${ps5Nama.desc}</div>
+        </div>
+        <div class="stat-box" style="text-align:left;">
+          <div class="stat-label sans">Gabungan Nama + Weton (${jWeton.wetonStr})</div>
+          <div class="stat-value">${neptuNama} + ${jWeton.neptu} = ${gabunganAgung}</div>
+          <div class="stat-sub sans">Pancasuda Gabungan: <strong>${ps7Gab.name}</strong> — ${ps7Gab.desc}</div>
+        </div>
+        <div class="stat-box" style="text-align:left;">
+          <div class="stat-label sans">Keterangan Tata Tulis</div>
+          <div class="stat-value" style="font-size:1.05rem;">${styleMode === 'spaced' ? 'Spasi Modern' : 'Scriptio Continua'}</div>
+          <div class="stat-sub sans">Pangkon hanya muncul di ujung akhir apabila berakhir konsonan mati.</div>
+        </div>
+      `;
+    }
+
+    /* ========================================================================
+       TAB 3: HARI BAIK PAWIWAHAN & KECOCOKAN JODOH
+       ======================================================================== */
+    function initNikahSelectors() {
+      const mSel = document.getElementById('nikah-target-month');
+      const ySel = document.getElementById('nikah-target-year');
+      if (!mSel || !ySel) return;
+
+      const now = new Date();
+      mSel.innerHTML = BULAN_INDO.map((b, idx) => `<option value="${idx + 1}" ${idx === now.getMonth() ? 'selected' : ''}>${b}</option>`).join('');
+
+      const curYear = now.getFullYear();
+      let yOpts = '';
+      for (let y = curYear - 1; y <= curYear + 5; y++) {
+        yOpts += `<option value="${y}" ${y === curYear ? 'selected' : ''}>${y}</option>`;
+      }
+      ySel.innerHTML = yOpts;
+    }
+
+    function calcNikah() {
+      const priaName = document.getElementById('nikah-pria-nama').value.trim() || 'Mempelai Pria';
+      const wanitaName = document.getElementById('nikah-wanita-nama').value.trim() || 'Mempelai Wanita';
+      const priaDate = document.getElementById('nikah-pria-date').value;
+      const priaTime = document.getElementById('nikah-pria-time').value;
+      const wanitaDate = document.getElementById('nikah-wanita-date').value;
+      const wanitaTime = document.getElementById('nikah-wanita-time').value;
+      const rule = document.getElementById('nikah-rule').value;
+      const targetMonth = Number(document.getElementById('nikah-target-month').value);
+      const targetYear = Number(document.getElementById('nikah-target-year').value);
+
+      if (!priaDate || !wanitaDate) return;
+
+      const priaEff = getEffectiveDayNumber(priaDate, priaTime, rule);
+      const wanitaEff = getEffectiveDayNumber(wanitaDate, wanitaTime, rule);
+      const jPria = calculateJavaneseDateFromDayNum(priaEff.dayNum);
+      const jWanita = calculateJavaneseDateFromDayNum(wanitaEff.dayNum);
+
+      const aksaraPria = parseNameToAksara(priaName, 'continua');
+      const aksaraWanita = parseNameToAksara(wanitaName, 'continua');
+
+      const totalWetonPasangan = jPria.neptu + jWanita.neptu;
+      const totalNamaPasangan = aksaraPria.neptu20 + aksaraWanita.neptu20;
+      const totalAgungPasangan = totalWetonPasangan + totalNamaPasangan;
+
+      document.getElementById('nikah-summary-grid').innerHTML = `
+        <div class="stat-box" style="text-align:left;">
+          <div class="stat-label sans">Mempelai Pria</div>
+          <div class="stat-value">${priaName}</div>
+          <div style="font-size:1.35rem; color:var(--soga-red); margin:2px 0;">${aksaraPria.unicode}</div>
+          <div class="stat-sub sans">Weton: <strong>${jPria.wetonStr}</strong> (Neptu ${jPria.neptu}) • Neptu Nama: <strong>${aksaraPria.neptu20}</strong></div>
+        </div>
+        <div class="stat-box" style="text-align:left;">
+          <div class="stat-label sans">Mempelai Wanita</div>
+          <div class="stat-value" style="color:var(--soga-red);">${wanitaName}</div>
+          <div style="font-size:1.35rem; color:var(--keraton-green); margin:2px 0;">${aksaraWanita.unicode}</div>
+          <div class="stat-sub sans">Weton: <strong>${jWanita.wetonStr}</strong> (Neptu ${jWanita.neptu}) • Neptu Nama: <strong>${aksaraWanita.neptu20}</strong></div>
+        </div>
+      `;
+
+      const rem9 = totalWetonPasangan % 9;
+      const jodoh9 = JODOH_SISA_9[rem9];
+      const rem4 = totalWetonPasangan % 4;
+      const jodoh4 = JODOH_SISA_4[rem4];
+      const rem5Nama = totalNamaPasangan % 5;
+      const ps5Nama = PANCASUDA_5.find(p => p.rem === rem5Nama);
+      const rem7Agung = totalAgungPasangan % 7;
+      const ps7Agung = PANCASUDA_7.find(p => p.rem === rem7Agung);
+
+      document.getElementById('nikah-jodoh-narrative').innerHTML = `
+        <div class="grid-3 sans" style="margin-bottom:12px;">
+          <div class="stat-box">
+            <div class="stat-label">Pétung Weton Sisa 9 (${totalWetonPasangan} ÷ 9)</div>
+            <div class="stat-value">${jodoh9.name}</div>
+            <div class="stat-sub">${jodoh9.status}</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Pétung Weton Sisa 4 (${totalWetonPasangan} ÷ 4)</div>
+            <div class="stat-value">${jodoh4.name}</div>
+            <div class="stat-sub">${jodoh4.desc}</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Pétung Nama Pasangan (${totalNamaPasangan} ÷ 5)</div>
+            <div class="stat-value">${ps5Nama.name}</div>
+            <div class="stat-sub">Gabungan Agung (${totalAgungPasangan}): <strong>${ps7Agung.name}</strong></div>
+          </div>
+        </div>
+        <div class="sans" style="font-size:13.5px; line-height:1.6;">
+          <p style="margin:0 0 8px;"><strong>Narasi Rumah Tangga (${jodoh9.name} &amp; ${jodoh4.name}):</strong> ${jodoh9.desc} Dari sisi pétung nama kedua mempelai jatuh pada hitungan <strong>${ps5Nama.name}</strong> (${ps5Nama.desc}) dan gabungan agung weton + nama menghasilkan <strong>${ps7Agung.name}</strong>.</p>
+          <div class="soga-box">
+            <strong>Ikhtiar &amp; Alternatif Laku Adat Apabila Melanjutkan ke Pernikahan:</strong><br/>
+            ${jodoh9.solusi} Selain itu, tradisi Jawa menganjurkan <em>bancakan weton</em> (bubur merah putih &amp; tumpeng) untuk menyelaraskan watak kedua mempelai sebelum ijab kabul.
+          </div>
+        </div>
+      `;
+
+      document.getElementById('nikah-month-label').textContent = `${BULAN_INDO[targetMonth - 1]} ${targetYear}`;
+      const daysInMonth = new Date(Date.UTC(targetYear, targetMonth, 0)).getUTCDate();
+      const rows = [];
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dNum = toDayNumber(targetYear, targetMonth, d);
+        const cal = calculateJavaneseDateFromDayNum(dNum);
+
+        const isSameDayPria = cal.saptawara.id === jPria.saptawara.id && cal.pancawara.id === jPria.pancawara.id;
+        const isSameDayWanita = cal.saptawara.id === jWanita.saptawara.id && cal.pancawara.id === jWanita.pancawara.id;
+        if (isSameDayPria || isSameDayWanita || cal.paringkelan === 'Wurukung') continue;
+
+        const sumAkad = totalWetonPasangan + cal.neptu;
+        const sumAkadAgung = totalAgungPasangan + cal.neptu;
+        const rem5Akad = sumAkad % 5;
+        const ps5Akad = PANCASUDA_5.find(p => p.rem === rem5Akad);
+        const rem7Akad = sumAkadAgung % 7;
+        const ps7Akad = PANCASUDA_7.find(p => p.rem === rem7Akad);
+
+        if (rem5Akad === 1 || rem5Akad === 2 || rem5Akad === 3) {
+          rows.push(`
+            <tr>
+              <td data-label="Tanggal Masehi & Jawa"><strong>${cal.masehiStr}</strong><br/><span style="font-size:12px; color:var(--ink-muted);">${cal.jDay} ${cal.jMonth} ${cal.jYear} Ja (${cal.tahunJawa})</span></td>
+              <td data-label="Weton & Wuku"><strong>${cal.wetonStr}</strong> (Neptu ${cal.neptu})<br/><span style="font-size:12px; color:var(--keraton-green);">Wuku ${cal.wuku} • ${cal.paringkelan}</span></td>
+              <td data-label="Pétung Akad (Weton + Nama)"><span class="green-tag">${ps5Akad.name}</span> &amp; <span class="gold-tag">${ps7Akad.name}</span><br/><span style="font-size:11.5px; color:var(--ink-muted);">Jumlah Akad: ${sumAkad} (Agung: ${sumAkadAgung})</span></td>
+              <td data-label="Keterangan Primbon" style="font-size:12.5px;">${ps5Akad.desc}</td>
+            </tr>
+          `);
+        }
+      }
+
+      document.getElementById('nikah-days-tbody').innerHTML = rows.length > 0
+        ? rows.join('')
+        : '<tr><td colspan="4">Tidak ditemukan hari yang memenuhi kriteria pada bulan ini. Silakan pilih bulan rencana berikutnya.</td></tr>';
+    }
+
+    /* ========================================================================
+       TAB 4: PERINGATAN KEMATIAN / HAUL (GEBLAG, 3, 7, 40, 100, PENDHAK, 1000, 2000, 3000)
+       ======================================================================== */
+    function calcHaul() {
+      const name = document.getElementById('haul-name').value.trim() || 'Almarhum / Almarhumah';
+      const dateVal = document.getElementById('haul-date').value;
+      const timeVal = document.getElementById('haul-time').value || '10:30';
+      const ruleVal = document.getElementById('haul-rule').value;
+
+      if (!dateVal) return;
+
+      const eff = getEffectiveDayNumber(dateVal, timeVal, ruleVal);
+      const geblagCal = calculateJavaneseDateFromDayNum(eff.dayNum);
+
+      document.getElementById('haul-report-title').textContent = `Jadwal Selamatan Peringatan Kematian — ${name}`;
+      document.getElementById('haul-geblag-badge').textContent = `Geblag: ${geblagCal.wetonStr}`;
+
+      const noteEl = document.getElementById('haul-wiwit-note');
+      if (eff.shifted) {
+        noteEl.style.display = 'block';
+        noteEl.innerHTML = `<strong>Catatan Paugeran Wiwit:</strong> ${eff.shiftReason}`;
+      } else {
+        noteEl.style.display = 'none';
+      }
+
+      const milestones = [
+        { label: 'Geblag', offset: 0,    rumus: 'Hari ke-1 (Jejer)' },
+        { label: '3 Hari', offset: 2,   rumus: 'Geblag + 2 hari (Ke-3)' },
+        { label: '7 Hari', offset: 6,   rumus: 'Geblag + 6 hari (Ke-7)' },
+        { label: '40 Hari', offset: 39, rumus: 'Geblag + 39 hari (Ke-40)' },
+        { label: '100 Hari', offset: 99, rumus: 'Geblag + 99 hari (Ke-100)' },
+        { label: '1 Tahun', offset: 353, rumus: '1 Tahun Jawa (354 hari)' },
+        { label: '2 Tahun', offset: 707, rumus: '2 Tahun Jawa (708 hari)' },
+        { label: '1000 Hari', offset: 999, rumus: 'Geblag + 999 hari (Ke-1000)' },
+        { label: '2000 Hari', offset: 1999, rumus: 'Geblag + 1999 hari (Ke-2000)' },
+        { label: '3000 Hari', offset: 2999, rumus: 'Geblag + 2999 hari (Ke-3000)' }
+      ];
+
+      document.getElementById('haul-tbody').innerHTML = milestones.map(m => {
+        const cal = calculateJavaneseDateFromDayNum(eff.dayNum + m.offset);
+        const isMajor = [0, 39, 99, 999, 1999, 2999].includes(m.offset);
+        return `
+          <tr>
+            <td data-label="Peringatan"><strong style="color:${isMajor ? 'var(--soga-red)' : 'var(--keraton-green)'};">${m.label}</strong></td>
+            <td data-label="Rumus Pétung" style="font-size:12px; color:var(--ink-muted);">${m.rumus}</td>
+            <td data-label="Hari & Pasaran (Weton)"><strong>${cal.wetonStr}</strong><br/><span style="font-size:11.5px; color:var(--ink-muted);">Wuku ${cal.wuku} • ${cal.paringkelan}</span></td>
+            <td data-label="Tanggal Masehi"><strong>${cal.masehiStr}</strong></td>
+            <td data-label="Penanggalan Jawa (Asapon)">${cal.jDay} ${cal.jMonth} ${cal.jYear} Ja<br/><span style="font-size:11.5px; color:var(--keraton-green);">Tahun ${cal.tahunJawa}</span></td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    /* ========================================================================
+       TAB 5: KATURANGGAN (ANDHENG-ANDHENG & KATURANGGAN WANITA)
+       ======================================================================== */
+    let selectedMoleId = 1;
+
+    function switchKaturangganMode(mode) {
+      document.getElementById('subtab-mole').classList.toggle('active', mode === 'mole');
+      document.getElementById('subtab-wanita').classList.toggle('active', mode === 'wanita');
+      document.getElementById('katuranggan-mole-mode').style.display = mode === 'mole' ? 'block' : 'none';
+      document.getElementById('katuranggan-wanita-mode').style.display = mode === 'wanita' ? 'block' : 'none';
+    }
+
+    function renderMoleList() {
+      const q = (document.getElementById('mole-search').value || '').toLowerCase();
+      const nat = document.getElementById('mole-filter-nature').value;
+
+      const filtered = ANDHENG_DATA.filter(item => {
+        const matchText = item.name.toLowerCase().includes(q) || item.loc.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+        const matchNat = nat === 'all' || item.nature === nat;
+        return matchText && matchNat;
+      });
+
+      const svgGroup = document.getElementById('svg-mole-points');
+      if (svgGroup) {
+        svgGroup.innerHTML = ANDHENG_DATA.map(m => {
+          const isSel = m.id === selectedMoleId;
+          const fill = m.nature === 'baik' ? '#144d32' : '#7c2418';
+          return `
+            <circle class="mole-dot" cx="${m.x}" cy="${m.y}" r="${isSel ? 7 : 4.5}"
+              fill="${isSel ? '#f0cf65' : fill}"
+              stroke="${isSel ? '#7c2418' : '#fcf9f0'}"
+              stroke-width="${isSel ? 2.5 : 1.3}"
+              onclick="selectMole(${m.id})">
+              <title>${m.name} (${m.loc})</title>
+            </circle>
+          `;
+        }).join('');
+      }
+
+      const activeItem = ANDHENG_DATA.find(m => m.id === selectedMoleId) || filtered[0];
+      if (activeItem) {
+        document.getElementById('mole-detail-highlight').innerHTML = `
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; margin-bottom:4px;">
+            <strong style="font-size:14.5px; color:var(--keraton-green);">${activeItem.id}. Katuranggan "${activeItem.name}" — ${activeItem.loc}</strong>
+            <span class="${activeItem.nature === 'baik' ? 'green-tag' : 'soga-tag'}">${activeItem.nature === 'baik' ? 'Pertanda Utama' : 'Laku Waspada'}</span>
+          </div>
+          <div>${activeItem.desc}</div>
+        `;
+      }
+
+      document.getElementById('mole-list-container').innerHTML = filtered.map(item => `
+        <div class="katuranggan-item sans ${item.id === selectedMoleId ? 'selected' : ''}" onclick="selectMole(${item.id})">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+            <strong style="color:var(--keraton-green);">${item.id}. ${item.name}</strong>
+            <span style="font-size:11px; color:var(--soga-red); font-weight:700;">${item.loc}</span>
+          </div>
+          <div style="font-size:12.5px; color:var(--ink-main); margin-top:4px;">${item.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    function selectMole(id) {
+      selectedMoleId = id;
+      renderMoleList();
+    }
+
+    function renderWanitaList() {
+      const q = (document.getElementById('wanita-search').value || '').toLowerCase();
+      const cat = document.getElementById('wanita-cat-filter').value;
+
+      const filtered = KATURANGGAN_WANITA_DATA.filter(item => {
+        const matchText = item.name.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q) || item.sifat.toLowerCase().includes(q);
+        const matchCat = cat === 'all' || item.cat === cat;
+        return matchText && matchCat;
+      });
+
+      document.getElementById('wanita-list-container').innerHTML = filtered.map(item => `
+        <div class="katuranggan-item sans" style="cursor:default; margin-bottom:0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:6px;">
+            <strong style="font-size:14.5px; color:var(--keraton-green);">${item.name}</strong>
+            <span class="gold-tag">${item.sifat}</span>
+          </div>
+          <div style="font-size:13px; color:var(--ink-main); line-height:1.55;">${item.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    /* ========================================================================
+       6. NAVIGASI, CETAK PDF, SIMPAN LEMBAR & UNDUH APLIKASI OFFLINE
+       ======================================================================== */
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn, .mob-tab').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-tab') === tabId);
+      });
+      const target = document.getElementById('panel-' + tabId);
+      if (target) target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById('toast-box');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => {
+        el.classList.remove('show');
+      }, 3400);
+    }
+
+    function printSection(panelId) {
+      switchTab(panelId.replace('panel-', ''));
+      setTimeout(() => {
+        window.print();
+      }, 150);
+    }
+
+    function saveSectionFile(panelId, baseFilename) {
+      const panelEl = document.getElementById(panelId);
+      if (!panelEl) return;
+      const clone = panelEl.cloneNode(true);
+      clone.querySelectorAll('.no-print, button, details').forEach(el => el.remove());
+
+      const styles = document.querySelector('style').innerHTML;
+      const reportHtml = `<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${baseFilename} — Pétungan Jawa</title>
+  <style>${styles}</style>
+</head>
+<body>
+  <header class="keraton-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div>
+          <h1 class="brand-title">Lembar Arsip Pétungan Jawa</h1>
+          <p class="brand-subtitle sans">Dicetak dari Aplikasi Pétungan Jawa &amp; Primbon Agung (100% Offline)</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main-wrap">${clone.innerHTML}</main>
+</body>
+</html>`;
+
+      try {
+        const blob = new Blob([reportHtml], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${baseFilename}.html`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+        showToast(`Lembar ${baseFilename}.html berhasil disimpan!`);
+      } catch (e) {
+        showToast('Gunakan tombol Cetak / Simpan PDF untuk menyimpan dokumen.');
+      }
+    }
+
+    function downloadSelfApp() {
+      try {
+        const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Petungan_Jawa_Offline.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+        showToast('Aplikasi Petungan_Jawa_Offline.html berhasil diunduh ke perangkat Anda!');
+      } catch (err) {
+        showToast('Gagal mengunduh otomatis. Gunakan menu Simpan Halaman (Ctrl+S / Cmd+S) di browser Anda.');
+      }
+    }
+
+    function populateCatalogSelectors() {
+      const wetonSel = document.getElementById('browse-weton-select');
+      if (wetonSel) {
+        wetonSel.innerHTML = Object.keys(LINTANG_35).map(w => `<option value="${w}">${w}</option>`).join('');
+      }
+      const wukuSel = document.getElementById('browse-wuku-select');
+      if (wukuSel) {
+        wukuSel.innerHTML = WUKU_30.map((wk, idx) => `<option value="${wk}">${idx + 1}. ${wk}</option>`).join('');
+      }
+    }
+
+    function initOfflinePWA() {
+      try {
+        if (window.location.protocol.startsWith('http')) {
+          const manifest = {
+            name: 'Pétungan Jawa & Primbon Agung',
+            short_name: 'Pétungan Jawa',
+            start_url: '.',
+            display: 'standalone',
+            background_color: '#f6f1e3',
+            theme_color: '#0b2e1e'
+          };
+          const mBlob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
+          const mLink = document.createElement('link');
+          mLink.rel = 'manifest';
+          mLink.href = URL.createObjectURL(mBlob);
+          document.head.appendChild(mLink);
+        }
+      } catch (e) {}
+    }
+
+    window.onload = function () {
+      populateCatalogSelectors();
+      renderCarakanReference();
+      initNikahSelectors();
+      calcWeton();
+      calcNamaAksara();
+      calcNikah();
+      calcHaul();
+      renderMoleList();
+      renderWanitaList();
+      initOfflinePWA();
+    };
+  </script>
+</body>
+</html>
